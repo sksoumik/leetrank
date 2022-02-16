@@ -11,19 +11,20 @@ def two_sum_bf(arr, target):
 
 # method 2: O (n) solution: hash table
 def two_sum_hash(arr, target):
-    hash_table = {}
+    hash_table = {}  # key: num, value: index
     for idx, num in enumerate(arr):
         complement = target - num
         if complement in hash_table:
             return [hash_table[complement], idx]
         hash_table[num] = idx
+    
     return []
 
 
 if __name__ == "__main__":
     # test case 1
     nums = [2, 7, 11, 15]
-    target = 9
+    target = 26
     print(two_sum_hash(nums, target))
 
     # test case 2
