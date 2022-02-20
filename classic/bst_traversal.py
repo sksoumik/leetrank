@@ -7,7 +7,7 @@ class TreeNode:
         self.value = value
         self.left = None
         self.right = None
-    
+
 
 class Solution:
     def inorderTraversal(self, root):
@@ -18,21 +18,28 @@ class Solution:
             + [root.value]
             + self.inorderTraversal(root.right)
         )
-    
+
     def preorderTraversal(self, root):
         if root is None:
             return []
-        return [root.value] + self.preorderTraversal(root.left) + self.preorderTraversal(root.right)
-    
+        return (
+            [root.value]
+            + self.preorderTraversal(root.left)
+            + self.preorderTraversal(root.right)
+        )
+
     def postorderTraversal(self, root):
         if root is None:
             return []
-        return self.postorderTraversal(root.left) + self.postorderTraversal(root.right) + [root.value]
+        return (
+            self.postorderTraversal(root.left)
+            + self.postorderTraversal(root.right)
+            + [root.value]
+        )
 
 
 if __name__ == "__main__":
 
-    
     s = Solution()
     one = TreeNode(1)
     two = TreeNode(2)
@@ -45,4 +52,3 @@ if __name__ == "__main__":
     print(s.inorderTraversal(one))
     print(s.preorderTraversal(one))
     print(s.postorderTraversal(one))
-
