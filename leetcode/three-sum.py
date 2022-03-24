@@ -16,11 +16,6 @@ from collections import Counter
 # time limit exceeds
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        if len(nums) < 3:
-            return []
-
-        nums = sorted(nums)
-
         counter_results = []
         for comb in combinations(nums, 3):
             if sum(comb) == 0:
