@@ -4,6 +4,7 @@ problem solving: leetcode and hackerrank
 #### Techniques:
 
 ##### leetocde patterns by SEAN PRASHAD
+```
 If input array is sorted then
     - Binary search
     - Two pointers
@@ -42,3 +43,4 @@ If asked for common strings then
 Else
     - Map/Set for O(1) time & O(n) space
     - Sort input for O(nlogn) time and O(1) space
+```
