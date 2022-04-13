@@ -5,6 +5,14 @@
 
 class Solution:
     def validPalindrome(self, s: str) -> bool:
+        """
+        If the left and right pointers don't match, then we check if the string is a palindrome if we
+        remove the left pointer or the right pointer
+        
+        :param s: the string we're checking
+        :type s: str
+        :return: The function isPalindrome is being returned.
+        """
         if len(s) <= 1:
             return True
         left = 0
