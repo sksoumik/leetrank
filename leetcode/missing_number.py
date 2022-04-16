@@ -8,7 +8,8 @@ from typing import List
 
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
-        # length of the list
+
+        # Creating a list of all the numbers from 0 to n.
         all_nums = []
 
         for i in range(len(nums) + 1):
