@@ -3,6 +3,13 @@
 
 
 def merge_sorted_array(list1, list2):
+    """
+    It takes two lists and returns a sorted list.
+    
+    :param list1: [1, 3, 5, 7, 9]
+    :param list2: [1, 3, 4, 5]
+    :return: A sorted list of the two lists combined.
+    """
     res = list1 + list2
     sorted_res = sorted(res)
     return sorted_res

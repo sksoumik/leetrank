@@ -10,8 +10,15 @@ class TreeNode:
 
 
 class Solution:
-    # return its maximum depth of binary tree
     def maxDepth(self, root: TreeNode) -> int:
+        """
+        We return the maximum of the depth of the left subtree and the depth of the right subtree, plus
+        one
+        
+        :param root: TreeNode
+        :type root: TreeNode
+        :return: The maximum depth of the tree.
+        """
         if root is None:
             return 0
         return max(self.maxDepth(root.left), self.maxDepth(root.right)) + 1

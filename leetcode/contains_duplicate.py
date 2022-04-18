@@ -8,6 +8,15 @@ from typing import List
 
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
+        """
+        If the length of the list of unique values is not equal to the length of the original list, then
+        there are duplicates
+        
+        :param nums: List[int] -> this is the list of numbers that we're going to be checking for
+        duplicates
+        :type nums: List[int]
+        :return: A boolean value.
+        """
         unique_values = list(set(nums))
 
         if len(unique_values) != len(nums):

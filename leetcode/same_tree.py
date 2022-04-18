@@ -12,6 +12,15 @@ class TreeNode:
 
 class Solution:
     def isSameTree(self, p, q):
+        """
+        If p and q are both None, then they are the same tree. If one of them is None, then they are not
+        the same tree. If both of them are not None, then they are the same tree if and only if their
+        values are the same and their left subtrees are the same and their right subtrees are the same
+        
+        :param p: the root node of the first tree
+        :param q: the root of the second tree
+        :return: True or False
+        """
         if p is None and q is None:
             return True
         if p is None or q is None:

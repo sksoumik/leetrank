@@ -5,6 +5,13 @@
 
 
 def fn_max_subarray(nums):
+    """
+    We keep track of the current sum and the maximum sum. If the current sum is greater than the maximum
+    sum, we update the maximum sum. If the current sum is less than 0, we reset the current sum to 0
+    
+    :param nums: the list of numbers
+    :return: The maximum sum of a subarray.
+    """
     max_sum = nums[0]
     curr_sum = 0
     for i in range(len(nums)):

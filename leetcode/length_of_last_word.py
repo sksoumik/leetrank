@@ -5,6 +5,14 @@
 
 class Solution:
     def lengthOfLastWord(self, s: str) -> int:
+        """
+        We strip the string of whitespace, split it into a list of words, and return the length of the
+        last word
+        
+        :param s: str
+        :type s: str
+        :return: The length of the last word in the string.
+        """
         if s == "":
             return 0
         s = s.strip()

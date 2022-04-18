@@ -3,6 +3,16 @@
 
 
 def find_duplicate(a):
+    """
+    "For each element in the array, if it's already in the set, add it to the duplicates list, otherwise
+    add it to the set."
+    
+    The time complexity of this function is O(n) because we're iterating through the array once. The
+    space complexity is O(n) because we're storing all n elements in the set
+    
+    :param a: the list of integers
+    :return: The duplicates in the list
+    """
     seen = set()
     dupliates = []
 
