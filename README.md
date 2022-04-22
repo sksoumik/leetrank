@@ -45,7 +45,3 @@ Else
     - Sort input for O(nlogn) time and O(1) space
 ```
 
-#### Revise technique
-1. Assume you'are explaining the code to someone else and read it loud. Or just make a tutorial out of the code. 
-2. Read out each line of code explaining what it does. 
-
