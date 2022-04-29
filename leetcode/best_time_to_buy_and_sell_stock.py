@@ -28,16 +28,25 @@ class Solution:
         :type prices: List[int]
         :return: The max profit that can be made from buying and selling a stock
         """
-        left = 0  # Buy
-        right = 1  # Sell
         max_profit = 0
-        while right < len(prices):
-            currentProfit = prices[right] - prices[left]  # our current Profit
-            if prices[left] < prices[right]:
-                max_profit = max(currentProfit, max_profit)
+
+        # left pointer, idx of buying the stock
+        buy = 0
+
+        # right pointer, index of selling the stock
+        sell = 1
+
+        while sell < len(prices):
+            current_profit = prices[sell] - prices[buy]
+
+            # if the buy < sell: then update max profit
+            if prices[buy] < prices[sell]:
+                max_profit = max(current_profit, max_profit)
             else:
-                left = right
-            right += 1
+                # update pointers
+                buy = sell
+            sell += 1
+
         return max_profit
 
 
