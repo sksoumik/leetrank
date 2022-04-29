@@ -8,19 +8,22 @@ def fn_max_subarray(nums):
     """
     We keep track of the current sum and the maximum sum. If the current sum is greater than the maximum
     sum, we update the maximum sum. If the current sum is less than 0, we reset the current sum to 0
-    
+
     :param nums: the list of numbers
     :return: The maximum sum of a subarray.
     """
-    max_sum = nums[0]
-    curr_sum = 0
-    for i in range(len(nums)):
-        curr_sum += nums[i]
-        if curr_sum > max_sum:
-            max_sum = curr_sum
-        if curr_sum < 0:
-            curr_sum = 0
-    print(curr_sum)
+    max_sum = float("-inf")
+    current_sum = 0
+
+    for idx, item in enumerate(nums):
+        current_sum += item
+
+        if current_sum > max_sum:
+            max_sum = current_sum
+
+        if current_sum < 0:
+            current_sum = 0
+
     return max_sum
 
 
