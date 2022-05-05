@@ -17,12 +17,16 @@ class Solution:
         :type head: ListNode
         :rtype: ListNode
         """
+        # Initialize two pointers, one will go one step a time (slow),
+        # another pointer two steps a time (fast).
         slow = head
         fast = head
+        # Iterate till fast's next is null (fast reaches to the end).
         while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
         # return slow.val
+        # return the slow's data, which would be the middle element.
         return slow
 
 
