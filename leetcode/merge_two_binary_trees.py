@@ -62,9 +62,4 @@ if __name__ == "__main__":
     print(root.left.val)
     print(root.right.val)
     print(root.left.left.val)
-    print(root.right.right.val)
-        
-
-
-
-        
+    print(root.right.right.val)  
