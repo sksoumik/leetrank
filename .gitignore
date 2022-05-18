@@ -132,3 +132,5 @@ dmypy.json
 
 eda.ipynb
 gitpush.sh
+notebooks/
+*.ipynb
