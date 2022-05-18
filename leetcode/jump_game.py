@@ -19,11 +19,14 @@ from typing import List
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
         """
-        If the last index is reachable from the first index, then return True, else return False
-
-        :param nums: List[int] -> the array of integers
-        :type nums: List[int]
-        :return: The goal is to return True if the last index can be reached from the first index.
+        greedy approach : O (n)
+        we start from the end of the array
+        if we can reach the end index from its previous index
+        then we update the goal to its previous index and then look again
+        wheather we can reach to the updated goal from its previous index
+        we continue this and if we can make the goal to reach at index 0
+        then we return True
+        else False
         """
         goal = len(nums) - 1  # last index
         # iterate the array backwards
