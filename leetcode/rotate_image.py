@@ -36,6 +36,17 @@ class Solution:
             for j in range(i):
                 matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
 
+        print(matrix)
+
+    def rotate_counterclockwise(self, matrix: List[List[int]]) -> None:
+
+        new_matrix = [
+            [matrix[j][i] for j in range(len(matrix))]
+            for i in range(len(matrix[0]) - 1, -1, -1)
+        ]
+
+        print(new_matrix)
+
     # another approach using numpy
     def rotate_numpy(self, matrix: List[List[int]]) -> None:
         """
@@ -55,4 +66,9 @@ class Solution:
 
 if __name__ == "__main__":
     matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-    Solution().rotate(matrix)
+    # Solution().rotate(matrix)
+
+    m = [[1, 2, 3], [2, 3, 3], [5, 4, 3]]
+
+    Solution().rotate_counterclockwise(matrix)
+

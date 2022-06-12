@@ -7,6 +7,8 @@
 # preserving the order of characters. No two characters may map to the same character,
 # but a character may map to itself.
 
+# video explanation: https://youtu.be/7yF-U1hLEqQ
+
 
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
