@@ -8,21 +8,22 @@
 # Output: 1
 
 from typing import List
+from operator import xor
+from functools import reduce
 
 
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
         """
-        We iterate through the list, and if the count of the number is equal to 1,
-        we return that number
-
-        :param nums: List[int] -> this is the list of numbers that we are given
+        Reduce(function, iterable) applies function of two arguments cumulatively to the items of
+        iterable, from left to right, so as to reduce the iterable to a single value
+        
+        :param nums: List[int]
         :type nums: List[int]
-        :return: The number that only appears once in the list.
+        :return: The reduce function is being used to apply a function of two arguments cumulatively to
+        the items of an iterable, from left to right, so as to reduce the iterable to a single value.
         """
-        for num in nums:
-            if nums.count(num) == 1:
-                return num
+        return reduce(xor, nums)
 
 
 if __name__ == "__main__":
