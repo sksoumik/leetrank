@@ -12,6 +12,14 @@
 
 class Solution:
     def isValid(self, s: str) -> bool:
+        """
+        If the stack is empty or the last element in the stack is not the opening bracket of the current
+        closing bracket, return false
+        
+        :param s: str - This is the string that we are checking to see if it is valid
+        :type s: str
+        :return: a boolean value.
+        """
         # map all closed brackets to their opening brackets
         # we will search for the opening bracket of the closed bracket
         # if we find it, we will remove it from the stack
@@ -27,7 +35,9 @@ class Solution:
                     return False
             else:
                 stack.append(char)
-        return True if not stack else False
+        # Checking if the stack is empty. If it is, it returns true. 
+        # If it is not, it returns false.
+        return not stack
 
 
 if __name__ == "__main__":
