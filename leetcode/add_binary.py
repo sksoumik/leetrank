@@ -4,7 +4,7 @@
 
 class Solution:
     def addBinary(self, a: str, b: str) -> str:
-        # convert a and b to int
+        # Converting the binary string to an integer.
         a = int(a, 2)
         b = int(b, 2)
         # add a and b

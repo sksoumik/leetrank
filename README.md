@@ -1,47 +1,25 @@
-# leetrank
-problem solving: leetcode and hackerrank 
+### Resources / Explanations
 
-#### Techniques:
+#### Videos
+ - [Top 5 Dynamic Programming Patterns for Coding Interviews](https://youtu.be/mBNrRy2_hVs)
 
-##### leetocde patterns by SEAN PRASHAD
-```
-If input array is sorted then
-    - Binary search
-    - Two pointers
+ - [How to solve (almost) any binary tree coding problem](https://youtu.be/s2Yyk3qdy3o)
 
-If asked for all permutations/subsets then
-    - Backtracking
+ - 
 
-If given a tree then
-    - DFS
-    - BFS
 
-If given a graph then
-    - DFS
-    - BFS
+#### Blogs
+ - [Best practice questions](https://www.techinterviewhandbook.org/best-practice-questions/)
 
-If given a linked list then
-    - Two pointers
+ - [Grind 75 questions](https://www.techinterviewhandbook.org/grind75)
 
-If recursion is banned then
-    - Stack
+ - [LEETCODE PATTERNS](https://seanprashad.com/leetcode-patterns/)
 
-If must solve in-place then
-    - Swap corresponding values
-    - Store one or more different values in the same pointer
+ - [Coding interview cheatsheet: Best practices before, during and after](https://www.techinterviewhandbook.org/coding-interview-cheatsheet/)
 
-If asked for maximum/minimum subarray/subset/options then
-    - Dynamic programming
+ - [The 30 most common Software Engineer behavioral interview questions](https://www.techinterviewhandbook.org/behavioral-interview-questions/)
 
-If asked for top/least K items then
-    - Heap
+ - 
 
-If asked for common strings then
-    - Map
-    - Trie
 
-Else
-    - Map/Set for O(1) time & O(n) space
-    - Sort input for O(nlogn) time and O(1) space
-```
 

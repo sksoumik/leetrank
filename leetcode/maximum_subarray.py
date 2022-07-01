@@ -27,6 +27,7 @@ def fn_max_subarray(nums):
     return max_sum
 
 
+
 if __name__ == "__main__":
     arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
     print(fn_max_subarray(arr))

@@ -26,6 +26,7 @@ class Solution:
         """
         rob1, rob2 = 0, 0
         for i in range(len(nums)):
+            # swap the values of two variables.
             rob1, rob2 = rob2, max(rob1 + nums[i], rob2)
         return rob2
 

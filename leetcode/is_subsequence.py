@@ -18,6 +18,16 @@ class Solution:
         iterable = iter(t)
         # Checking if all the characters in s are in iterable.
         return all(c in iterable for c in s)
+    
+    # recursive solution
+    def isSubsequence(self, s: str, t: str) -> bool:
+        if not s:
+            return True
+        if not t:
+            return False
+        if s[0] == t[0]:
+            return self.isSubsequence(s[1:], t[1:])
+        return self.isSubsequence(s, t[1:])
 
 
 if __name__ == '__main__':

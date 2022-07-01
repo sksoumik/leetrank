@@ -23,6 +23,9 @@ class Solution:
             # If it is not, then it returns False.
             if c1 not in map_st:
                 map_st[c1] = c2
+            # if the character in t is already in the map_ts dictionary
+            # then should map to the same element as the character
+            # otherwise return False
             elif map_st[c1] != c2:
                 return False
 

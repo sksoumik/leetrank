@@ -24,6 +24,14 @@ class SolutionRecursive:
 # dynamic programming
 class Solution:
     def climbStairs(self, n: int) -> int:
+        """
+        We're building a table of the number of ways to climb to each step, starting with the base cases
+        of 0, 1, and 2
+        
+        :param n: the number of steps we want to climb
+        :type n: int
+        :return: The number of ways to climb the stairs.
+        """
         table = [0, 1, 2]
 
         for i in range(3, n + 1):
