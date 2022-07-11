@@ -84,6 +84,8 @@ var twoSum = function (nums, target) {
 
 # Symmetric Tree
 
+https://leetcode.com/problems/symmetric-tree
+
 Given the `root` of a binary tree, *check whether it is a mirror of itself* (i.e., symmetric around its center).
 
  
@@ -166,5 +168,111 @@ var isMirror = function (left, right) {
         isMirror(left.left, right.right) &&
         isMirror(left.right, right.left);
 }
+```
+
+
+
+# Add Binary
+
+https://leetcode.com/problems/add-binary/
+
+Given two binary strings a and b, return their sum as a binary string.
+
+**Example 1:**
+
+```
+Input: a = "11", b = "1"
+Output: "100"
+```
+
+**Example 2:**
+
+```
+Input: a = "1010", b = "1011"
+Output: "10101"
+```
+
+#### py
+
+```python
+class Solution:
+    def addBinary(self, a: str, b: str) -> str:
+        # Converting the binary string to an integer.
+        a = int(a, 2)
+        b = int(b, 2)
+        # add a and b
+        c = a + b
+        # convert int to binary string
+        return bin(c)[2:]
+```
+
+
+
+# Best Time to Buy and Sell Stock
+
+You are given an array `prices` where `prices[i]` is the price of a given stock on the `ith` day.
+
+You want to maximize your profit by choosing a **single day** to buy one stock and choosing a **different day in the future** to sell that stock.
+
+Return *the maximum profit you can achieve from this transaction*. If you cannot achieve any profit, return `0`.
+
+ 
+
+**Example 1:**
+
+```
+Input: prices = [7,1,5,3,6,4]
+Output: 5
+Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
+```
+
+**Example 2:**
+
+```
+Input: prices = [7,6,4,3,1]
+Output: 0
+Explanation: In this case, no transactions are done and the max profit = 0.
+```
+
+
+
+#### py
+
+```python
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        """
+        We start with a left pointer at the beginning of the array and a right pointer at the second
+        element. We then check to see if the element to the right is greater than the element to the
+        left. If it is, we calculate the current profit and update our max profit if the current profit
+        is greater. If the element to the right is not greater, we move the left pointer to the right by
+        one. We then increment the right pointer by one. We repeat this process until the right pointer
+        is at the end of the array
+
+        :param prices: List[int] -> This is the list of prices that we are given
+        :type prices: List[int]
+        :return: The max profit that can be made from buying and selling a stock
+        """
+        max_profit = 0
+
+        # left pointer, idx of buying the stock
+        buy = 0
+
+        # right pointer, index of selling the stock
+        sell = 1
+
+        while sell < len(prices):
+            current_profit = prices[sell] - prices[buy]
+
+            # if the buy < sell: then update max profit
+            if prices[buy] < prices[sell]:
+                max_profit = max(current_profit, max_profit)
+            else:
+                # update pointers
+                buy = sell
+            sell += 1
+
+        return max_profit
 ```
 
