@@ -1,5 +1,3 @@
-
-
 # Two Sum
 
 https://leetcode.com/problems/two-sum/
@@ -663,5 +661,32 @@ class Solution:
         if root is None:
             return 0
         return max(self.maxDepth(root.left), self.maxDepth(root.right)) + 1
+```
+
+
+
+#### js
+
+```javascript
+function TreeNode(val, left, right) {
+  this.val = val === undefined ? 0 : val;
+  this.left = left === undefined ? null : left;
+  this.right = right === undefined ? null : right;
+}
+
+var diameterOfBinaryTree = function (root) {
+  if (!root) return 0;
+
+  return Math.max(
+    diameterOfBinaryTree(root.left),
+    diameterOfBinaryTree(root.right),
+    maxDepth(root.left) + maxDepth(root.right)
+  );
+};
+
+var maxDepth = function (root) {
+  if (!root) return 0;
+  return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
+};
 ```
 
