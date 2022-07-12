@@ -354,3 +354,246 @@ class Solution:
         return -1
 ```
 
+
+
+# Binary Tree Inorder Traversal
+
+https://leetcode.com/problems/binary-tree-inorder-traversal/
+
+Given the `root` of a binary tree, return *the inorder traversal of its nodes' values*.
+
+ 
+
+**Example 1:**
+
+![img](https://assets.leetcode.com/uploads/2020/09/15/inorder_1.jpg)
+
+```
+Input: root = [1,null,2,3]
+Output: [1,3,2]
+```
+
+**Example 2:**
+
+```
+Input: root = []
+Output: []
+```
+
+**Example 3:**
+
+```
+Input: root = [1]
+Output: [1]
+```
+
+
+
+#### py
+
+```python
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
+class Solution:
+    def inorderTraversal(self, root):
+        if root is None:
+            return []
+        return (
+            self.inorderTraversal(root.left)
+            + [root.val]
+            + self.inorderTraversal(root.right)
+        )
+```
+
+
+
+# Climbing Stairs
+
+https://leetcode.com/problems/climbing-stairs
+
+You are climbing a staircase. It takes `n` steps to reach the top.
+
+Each time you can either climb `1` or `2` steps. In how many distinct ways can you climb to the top?
+
+ 
+
+**Example 1:**
+
+```
+Input: n = 2
+Output: 2
+Explanation: There are two ways to climb to the top.
+1. 1 step + 1 step
+2. 2 steps
+```
+
+**Example 2:**
+
+```
+Input: n = 3
+Output: 3
+Explanation: There are three ways to climb to the top.
+1. 1 step + 1 step + 1 step
+2. 1 step + 2 steps
+3. 2 steps + 1 step
+```
+
+
+
+#### py
+
+```python
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        """
+        We're building a table of the number of ways to climb to each step, starting with the base cases
+        of 0, 1, and 2
+        
+        :param n: the number of steps we want to climb
+        :type n: int
+        :return: The number of ways to climb the stairs.
+        """
+        table = [0, 1, 2]
+
+        for i in range(3, n + 1):
+            table.append(table[i - 1] + table[i - 2])
+        return table[n]
+```
+
+
+
+# Contains Duplicate
+
+https://leetcode.com/problems/contains-duplicate
+
+Given an integer array `nums`, return `true` if any value appears **at least twice** in the array, and return `false` if every element is distinct.
+
+ 
+
+**Example 1:**
+
+```
+Input: nums = [1,2,3,1]
+Output: true
+```
+
+**Example 2:**
+
+```
+Input: nums = [1,2,3,4]
+Output: false
+```
+
+**Example 3:**
+
+```
+Input: nums = [1,1,1,3,3,4,3,2,4,2]
+Output: true
+```
+
+
+
+#### py
+
+```python
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        """
+        If the length of the list of unique values is not equal to the length of the original list, then
+        there are duplicates
+        
+        :param nums: List[int] -> this is the list of numbers that we're going to be checking for
+        duplicates
+        :type nums: List[int]
+        :return: A boolean value.
+        """
+        unique_values = list(set(nums))
+
+        if len(unique_values) != len(nums):
+            return True
+        else:
+            return False
+```
+
+
+
+# Diameter of Binary Tree
+
+https://leetcode.com/problems/diameter-of-binary-tree/
+
+Given the `root` of a binary tree, return *the length of the **diameter** of the tree*.
+
+The **diameter** of a binary tree is the **length** of the longest path between any two nodes in a tree. This path may or may not pass through the `root`.
+
+The **length** of a path between two nodes is represented by the number of edges between them.
+
+ 
+
+**Example 1:**
+
+![img](https://assets.leetcode.com/uploads/2021/03/06/diamtree.jpg)
+
+```
+Input: root = [1,2,3,4,5]
+Output: 3
+Explanation: 3 is the length of the path [4,2,1,3] or [5,2,1,3].
+```
+
+**Example 2:**
+
+```
+Input: root = [1,2]
+Output: 1
+```
+
+
+
+#### py
+
+```python
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
+class Solution:
+    def diameterOfBinaryTree(self, root):
+        """
+        The diameter of a binary tree is the maximum of the following three numbers:
+
+        1. The diameter of the left subtree.
+        2. The diameter of the right subtree.
+        3. The longest path between any two nodes in the left subtree + the longest path between any two
+        nodes in the right subtree
+
+        :param root: the root of the tree
+        :return: The diameter of the tree.
+        """
+        if root is None:
+            return 0
+        return max(
+            self.diameterOfBinaryTree(root.left),
+            self.diameterOfBinaryTree(root.right),
+            self.maxDepth(root.left) + self.maxDepth(root.right),
+        )
+
+    def maxDepth(self, root):
+        """
+        The maximum depth of a binary tree is the maximum number of nodes along the path from the root
+        node down to the farthest leaf node
+
+        :param root: the root node of the tree
+        :return: The max depth of the tree.
+        """
+        if root is None:
+            return 0
+        return max(self.maxDepth(root.left), self.maxDepth(root.right)) + 1
+```
+
