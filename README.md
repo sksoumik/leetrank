@@ -354,6 +354,28 @@ class Solution:
         return -1
 ```
 
+#### js
+
+```javascript
+var search = function (nums, target) {
+  let i = 0;
+  let j = nums.length - 1;
+  while (i <= j) {
+    let idx_of_mid = Math.floor((i + j) / 2);
+    let mid_element = nums[idx_of_mid];
+    if (target === mid_element) {
+      return idx_of_mid;
+    }
+    if (target > mid_element) {
+      i = idx_of_mid + 1;
+    } else {
+      j = idx_of_mid - 1;
+    }
+  }
+  return -1;
+};
+```
+
 
 
 # Binary Tree Inorder Traversal
