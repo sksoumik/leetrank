@@ -769,3 +769,73 @@ var maxArea = function (height) {
 };
 ```
 
+
+
+# Find All Numbers Disappeared in an Array
+
+https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/
+
+Given an array `nums` of `n` integers where `nums[i]` is in the range `[1, n]`, return *an array of all the integers in the range* `[1, n]` *that do not appear in* `nums`.
+
+ 
+
+**Example 1:**
+
+```
+Input: nums = [4,3,2,7,8,2,3,1]
+Output: [5,6]
+```
+
+**Example 2:**
+
+```
+Input: nums = [1,1]
+Output: [2]
+```
+
+
+
+#### py
+
+```python
+class Solution:
+    def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
+        """
+        We create a list of all numbers from 1 to n, and then find all uncommon numbers between all_nums
+        and nums
+
+        :param nums: List[int] -> The list of numbers that we are given
+        :type nums: List[int]
+        :return: A list of all numbers that are not in the input list.
+        """
+
+        # Creating a list of all numbers from 1 to n.
+        all_nums = []
+
+        for num in range(1, len(nums) + 1):
+            all_nums.append(num)
+
+        # find all uncommon numbers between all_nums and nums
+        disapppeared_nums = list(set(all_nums) ^ set(nums))
+        return disapppeared_nums
+```
+
+#### js
+
+```javascript
+var findDisappearedNumbers = function (nums) {
+  // declare an empty array
+  let all_nums = [];
+
+  // iterate through the array
+  for (let i = 1; i <= nums.length; i++) {
+    // add all the numbers to the all_nums
+    all_nums.push(i);
+  }
+
+  //find all uncommon numbers between the all_nums and nums
+  let uncommon_nums = all_nums.filter((num) => !nums.includes(num));
+  return uncommon_nums;
+};
+```
+
