@@ -19,4 +19,3 @@ if __name__ == "__main__":
     print(s.addBinary("1010", "1011"))
     print(s.addBinary("1010", "1010"))
     print(s.addBinary("1010", "101"))
-

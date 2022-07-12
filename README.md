@@ -210,6 +210,8 @@ class Solution:
 
 # Best Time to Buy and Sell Stock
 
+https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+
 You are given an array `prices` where `prices[i]` is the price of a given stock on the `ith` day.
 
 You want to maximize your profit by choosing a **single day** to buy one stock and choosing a **different day in the future** to sell that stock.
@@ -274,5 +276,65 @@ class Solution:
             sell += 1
 
         return max_profit
+```
+
+
+
+#### js
+
+```javascript
+var maxProfit = function (prices) {
+  max_profit = 0;
+
+  buy = 0;
+  sell = 1;
+  while (sell < prices.length) {
+    current_profit = prices[sell] - prices[buy];
+
+    // if the sell > buy: update the max profit
+    if (prices[sell] > prices[buy]) {
+      max_profit = Math.max(max_profit, current_profit);
+    } else {
+      // if the sell < buy: update the buy
+      buy = sell;
+    }
+    sell++;
+  }
+  return max_profit;
+};
+```
+
+
+
+# Binary Search
+
+Given an array of integers `nums` which is sorted in ascending order, and an integer `target`, write a function to search `target` in `nums`. If `target` exists, then return its index. Otherwise, return `-1`.
+
+You must write an algorithm with `O(log n)` runtime complexity.
+
+ 
+
+**Example 1:**
+
+```
+Input: nums = [-1,0,3,5,9,12], target = 9
+Output: 4
+Explanation: 9 exists in nums and its index is 4
+```
+
+**Example 2:**
+
+```
+Input: nums = [-1,0,3,5,9,12], target = 2
+Output: -1
+Explanation: 2 does not exist in nums so return -1
+```
+
+
+
+#### py
+
+```
+
 ```
 
