@@ -14,6 +14,8 @@
  * @param {string} columnTitle
  * @return {number}
  */
+// video explanation: https://youtu.be/DQKafgIBeyI
+
 var titleToNumber = function (columnTitle) {
   let multiplier = 1;
   let column = 0;

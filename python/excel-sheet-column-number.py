@@ -10,8 +10,7 @@
 # AA -> 27
 # AB -> 28
 
-from cv2 import multiply
-
+# video explanation: https://youtu.be/DQKafgIBeyI
 
 class Solution:
     def titleToNumber(self, columnTitle: str) -> int:
