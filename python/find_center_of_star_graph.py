@@ -16,6 +16,7 @@ class Solution:
         common_elements = set.intersection(*map(set, edges))
         # removes a top element from the set and returns it
         return common_elements.pop()
+        
 
 
 if __name__ == "__main__":
