@@ -10,18 +10,18 @@
 # AA -> 27
 # AB -> 28
 
+from cv2 import multiply
+
+
 class Solution:
     def titleToNumber(self, columnTitle: str) -> int:
-        # Convert the column title to a number
-        # 1. Convert the first letter to a number
-        # 2. Multiply the result by 26
-        # 3. Add the second letter to the result
-        # 4. Repeat until the last letter
-        # 5. Return the result
-        result = 0
-        for i in range(len(columnTitle)):
-            result += (ord(columnTitle[i]) - 64) * 26 ** (len(columnTitle) - i - 1)
-        return result
+        multiplier = 1
+        column = 0
+        # A for loop that starts at the end of the string and goes backwards by 1 character
+        for i in range(len(columnTitle) - 1, -1, -1):
+            column += (ord(columnTitle[i]) - 64) * multiplier
+            multiplier *= 26
+        return column
 
 if __name__ == "__main__":
     s = Solution()

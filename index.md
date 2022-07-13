@@ -839,3 +839,74 @@ var findDisappearedNumbers = function (nums) {
 };
 ```
 
+
+
+# Excel Sheet Column Number
+
+https://leetcode.com/problems/excel-sheet-column-number/
+
+Given a string `columnTitle` that represents the column title as appears in an Excel sheet, return *its corresponding column number*.
+
+For example:
+
+```
+A -> 1
+B -> 2
+C -> 3
+...
+Z -> 26
+AA -> 27
+AB -> 28 
+...
+```
+
+ 
+
+**Example 1:**
+
+```
+Input: columnTitle = "A"
+Output: 1
+```
+
+**Example 2:**
+
+```
+Input: columnTitle = "AB"
+Output: 28
+```
+
+
+
+#### py
+
+```python
+class Solution:
+    def titleToNumber(self, columnTitle: str) -> int:
+        multiplier = 1
+        column = 0
+        # A for loop that starts at the end of the string and goes backwards by 1 character
+        for i in range(len(columnTitle) - 1, -1, -1):
+            column += (ord(columnTitle[i]) - 64) * multiplier
+            multiplier *= 26
+        return column
+```
+
+
+
+#### js
+
+```javascript
+var titleToNumber = function (columnTitle) {
+  let multiplier = 1;
+  let column = 0;
+  for (let i = columnTitle.length - 1; i >= 0; i--) {
+    column += (columnTitle.charCodeAt(i) - 64) * multiplier;
+    multiplier *= 26;
+  }
+  return column;
+};
+```
+
+
+
