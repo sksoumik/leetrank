@@ -23,6 +23,7 @@ Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
 #### py
 
 ```python
+# brute force: O(n^2)
 def two_sum_bf(arr, target):
     for i in range(len(arr)):
         for j in range(i + 1, len(arr)):
@@ -31,7 +32,7 @@ def two_sum_bf(arr, target):
     return []
 
 
-# method 2: O (n) solution: hash table
+# hash table: O(n) 
 def two_sum_hash(arr, target):
     hash_table = {}  # key: num, value: index
     for idx, num in enumerate(arr):
@@ -48,6 +49,7 @@ def two_sum_hash(arr, target):
 #### js
 
 ```javascript
+// hash table
 var twoSum = function (nums, target) {
     let hash_table = {};
     for (let i = 0; i < nums.length; i++) {
@@ -935,6 +937,35 @@ Explanation: As shown in the figure above, node 2 is connected to every other no
 ```
 Input: edges = [[1,2],[5,1],[1,3],[1,4]]
 Output: 1
+```
+
+#### py
+
+```python
+class Solution:
+    def findCenter(self, edges: List[List[int]]) -> int:
+        # we can consider this problem to be a non-graph problem
+        # just getting the common element in all lists solves the problem.
+
+        common_elements = set.intersection(*map(set, edges))
+        # removes a top element from the set and returns it
+        return common_elements.pop()
+```
+
+
+
+#### js
+
+```js
+var findCenter = function (edges) {
+  // find the intersection of all the arrays in edges
+  // the intersection will be the center of the star graph
+  let intersection = edges[0];
+  for (let i = 1; i < edges.length; i++) {
+    intersection = intersection.filter((x) => edges[i].includes(x));
+  }
+  return intersection[0];
+};
 ```
 
 
