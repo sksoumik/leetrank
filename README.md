@@ -1017,3 +1017,76 @@ var findDuplicate = function (nums) {
 };
 ```
 
+
+
+# Find the duplicate number
+
+https://leetcode.com/problems/find-the-duplicate-number
+
+Given an array of integers `nums` containing `n + 1` integers where each integer is in the range `[1, n]` inclusive.
+
+There is only **one repeated number** in `nums`, return *this repeated number*.
+
+You must solve the problem **without** modifying the array `nums` and uses only constant extra space.
+
+ 
+
+**Example 1:**
+
+```
+Input: nums = [1,3,4,2,2]
+Output: 2
+```
+
+**Example 2:**
+
+```
+Input: nums = [3,1,3,4,2]
+Output: 3
+```
+
+
+
+#### py
+
+```python
+class Solution:
+    def findDuplicate(self, nums: List[int]) -> int:
+        """
+        We iterate through the list, and if we see an element that we've seen before, we return it
+
+        :param nums: List[int] -> This is the list of numbers that we're going to be searching through
+        :type nums: List[int]
+        :return: The first duplicate element in the list.
+        """
+        seen = set()
+
+        for _, element in enumerate(nums):
+            if element in seen:
+                return element
+            else:
+                seen.add(element)
+
+        return -1
+```
+
+
+
+#### js
+
+```js
+var findDuplicate = function (nums) {
+  let seen = new Set();
+
+  for (let i = 0; i < nums.length; i++) {
+    if (seen.has(nums[i])) {
+      return nums[i];
+    } else {
+      seen.add(nums[i]);
+    }
+  }
+
+  return -1;
+};
+```
+
