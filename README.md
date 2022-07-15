@@ -1090,3 +1090,68 @@ var findDuplicate = function (nums) {
 };
 ```
 
+
+
+# Appeared only once in array
+
+unique elements and appeared only once is not the same. 
+
+\# unique is means, occurrence of the same element is 1. 
+
+For example,
+
+```
+nums = [1, 2, 3, 2, 3]
+```
+
+unique elements (set) will return `[1, 2, 3]` but appeared only once will return `[1]`. 
+
+
+
+#### py
+
+```python
+def get_unique(nums):
+    counter = {}
+
+    for i in nums:
+        if i in counter:
+            counter[i] += 1
+        else:
+            counter[i] = 1
+
+    appeared_once = []
+    for key, value in counter.items():
+        if value == 1:
+            appeared_once.append(key)
+
+    return appeared_once
+```
+
+
+
+#### js
+
+```js
+var get_unique = function (nums) {
+  // count the number of occurrences of each element
+  let count = {};
+  for (let i = 0; i < nums.length; i++) {
+    if (count[nums[i]]) {
+      count[nums[i]]++;
+    } else {
+      count[nums[i]] = 1;
+    }
+  }
+
+  let appeared_once = [];
+  for (let key in count) {
+    if (count[key] === 1) {
+      appeared_once.push(parseInt(key));
+    }
+  }
+
+  return appeared_once;
+};
+```
+
