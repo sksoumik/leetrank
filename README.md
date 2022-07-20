@@ -1252,3 +1252,69 @@ var firstUniqChar = function (s) {
 };
 ```
 
+
+
+# All Paths From Source to Target
+
+https://leetcode.com/problems/all-paths-from-source-to-target/
+
+Given a directed acyclic graph (**DAG**) of `n` nodes labeled from `0` to `n - 1`, find all possible paths from node `0` to node `n - 1` and return them in **any order**.
+
+The graph is given as follows: `graph[i]` is a list of all nodes you can visit from node `i` (i.e., there is a directed edge from node `i` to node `graph[i][j]`).
+
+ 
+
+**Example 1:**
+
+![img](https://assets.leetcode.com/uploads/2020/09/28/all_1.jpg)
+
+```
+Input: graph = [[1,2],[3],[3],[]]
+Output: [[0,1,3],[0,2,3]]
+Explanation: There are two paths: 0 -> 1 -> 3 and 0 -> 2 -> 3.
+```
+
+
+
+#### py
+
+```python
+class Solution:
+    def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
+        end_node = len(graph) - 1
+        paths = []
+        def dfs(node, path):
+            if node == end_node:
+                paths.append(path)
+            for next_node in graph[node]:
+                dfs(next_node, path + [next_node])
+        
+        dfs(0, [0])
+        return paths
+```
+
+
+
+#### js
+
+```javascript
+var allPathsSourceTarget = function (graph) {
+  const results = [];
+  findPaths([0], 0, graph, results);
+  return results;
+};
+
+function findPaths(current, node, graph, results) {
+  if (node == graph.length - 1) {
+    results.push(current.slice(0));
+    return;
+  }
+
+  for (let i = 0; i < graph[node].length; i++) {
+    current.push(graph[node][i]);
+    findPaths(current, graph[node][i], graph, results);
+    current.pop();
+  }
+}
+```
+
