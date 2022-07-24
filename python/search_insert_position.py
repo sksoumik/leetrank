@@ -41,6 +41,13 @@ class Solution:
 
         return left
 
+    # solution 2
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        for idx, num in enumerate(nums):
+            if num >= target:
+                return idx
+        return len(nums)
+
 
 if __name__ == "__main__":
     s = Solution()
