@@ -38,6 +38,11 @@ class Solution:
 
         print(matrix)
 
+    # second solution pythonic way
+    def rotate(self, matrix: List[List[int]]) -> None:
+        # rotate the matrix by 90 degrees clockwise
+        matrix[:] = zip(*matrix[::-1])
+
     def rotate_counterclockwise(self, matrix: List[List[int]]) -> None:
 
         new_matrix = [
@@ -71,4 +76,3 @@ if __name__ == "__main__":
     m = [[1, 2, 3], [2, 3, 3], [5, 4, 3]]
 
     Solution().rotate_counterclockwise(matrix)
-
