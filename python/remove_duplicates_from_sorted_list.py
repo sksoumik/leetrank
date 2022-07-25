@@ -11,37 +11,27 @@ class ListNode:
 
 
 class Solution:
-    # method 1
     def deleteDuplicates(self, head):
         """
-        :type head: ListNode
-        :rtype: ListNode
+        If the current node's value is the same as the next node's value, then skip the next node
+        because it is a sorted linked list.
+        
+        :param head: the head of the linked list
+        :return: The head of the linked list.
         """
-        # if list is empty
         if not head:
             return None
-        # if list has only one node
+        
         if not head.next:
             return head
-        # if list has more than one node
-        # create a pointer
-        pointer = head
-        # while pointer is not None
-        while pointer:
-            # create a pointer2
-            pointer2 = pointer
-            # while pointer2 is not None
-            while pointer2.next:
-                # if the value of the node is the same as the value of the next node
-                if pointer.val == pointer2.next.val:
-                    # delete the next node
-                    pointer2.next = pointer2.next.next
-                # else move the pointer2 to the next node
-                else:
-                    pointer2 = pointer2.next
-            # move the pointer to the next node
-            pointer = pointer.next
-        # return the head of the list
+    
+        current_node = head
+        while current_node.next:
+            if current_node.val == current_node.next.val:
+                current_node.next = current_node.next.next
+            else:
+                current_node = current_node.next    
+
         return head
 
 
@@ -55,17 +45,17 @@ if __name__ == "__main__":
     head.next.next.next.next = ListNode(3)
     # print the linked list
     print("The linked list is:")
-    pointer = head
-    while pointer:
-        print(pointer.val)
-        pointer = pointer.next
+    current_node = head
+    while current_node:
+        print(current_node.val)
+        current_node = current_node.next
     # delete the duplicates
     head = Solution().deleteDuplicates(head)
     # print the linked list after deleting the duplicates
     print("After deleting the duplicates:")
-    pointer = head
-    while pointer:
-        print(pointer.val)
-        pointer = pointer.next
+    current_node = head
+    while current_node:
+        print(current_node.val)
+        current_node = current_node.next
 
     
