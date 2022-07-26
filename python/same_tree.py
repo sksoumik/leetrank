@@ -16,7 +16,7 @@ class Solution:
         If p and q are both None, then they are the same tree. If one of them is None, then they are not
         the same tree. If both of them are not None, then they are the same tree if and only if their
         values are the same and their left subtrees are the same and their right subtrees are the same
-        
+
         :param p: the root node of the first tree
         :param q: the root of the second tree
         :return: True or False
@@ -28,6 +28,17 @@ class Solution:
         if p.val != q.val:
             return False
         return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
+
+    # solution 2: shortest code
+    def isSameTree_2(self, p, q):
+        # if p is not None and q is not None:
+        if p and q:
+            return (
+                p.val == q.val
+                and self.isSameTree(p.left, q.left)
+                and self.isSameTree(p.right, q.right)
+            )
+        return p is q
 
 
 if __name__ == "__main__":
