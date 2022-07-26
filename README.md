@@ -1,8 +1,20 @@
-# Problem Solving on LeetCode.
+### Problem Solving on LeetCode
 
 LeetCode Profile: https://leetcode.com/sksoumik/
+<br/>
+My Solutions can be found in the following directories:
 
-### Top Resources to Follow
+[python/](https://github.com/sksoumik/leetrank/tree/main/python)
+<br/>
+[javascript/](https://github.com/sksoumik/leetrank/tree/main/javascript)
+
+---
+
+<br/>
+<br/>
+<br/>
+
+# Top Resources to Follow
 
 ##### Blogs
 
