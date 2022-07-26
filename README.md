@@ -1,18 +1,9 @@
-### Problem Solving on LeetCode
-
 LeetCode Profile: https://leetcode.com/sksoumik/
-<br/>
+
 My Solutions can be found in the following directories:
 
-[python/](https://github.com/sksoumik/leetrank/tree/main/python)
-<br/>
-[javascript/](https://github.com/sksoumik/leetrank/tree/main/javascript)
-
----
-
-<br/>
-<br/>
-<br/>
+> [python/](https://github.com/sksoumik/leetrank/tree/main/python) 
+> [javascript/](https://github.com/sksoumik/leetrank/tree/main/javascript)
 
 # Top Resources to Follow
 
@@ -29,7 +20,19 @@ My Solutions can be found in the following directories:
 - [Top 5 Dynamic Programming Patterns for Coding Interviews](https://youtu.be/mBNrRy2_hVs)
 - [How to solve (almost) any binary tree coding problem](https://youtu.be/s2Yyk3qdy3o)
 
-##### YouTube Channels
+##### Algorithmic problem solving YT channels
 
 - [Neetcode](https://www.youtube.com/c/NeetCode)
 - [Algorithms made easy](https://www.youtube.com/c/AlgorithmsMadeEasy)
+
+##### ML coding/system design
+
+- [ML system design playlist](https://www.youtube.com/playlist?list=PLmGsNPZGeM5D8fgr2scwe8wZih4SYB7Vt)
+
+- [Data Science Jay](https://www.youtube.com/c/DataScienceJay/playlists)
+
+##### System Design
+
+- [Gaurav Sen YT](https://www.youtube.com/playlist?list=PLMCXHnjXnTnvo6alSjVkgxV-VH6EPyvoX)
+
+- [Instagram system design blog](https://www.educative.io/courses/grokking-the-system-design-interview/m2yDVZnQ8lG)
