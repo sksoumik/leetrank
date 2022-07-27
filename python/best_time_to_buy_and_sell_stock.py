@@ -15,7 +15,28 @@ from typing import List
 
 
 class Solution:
+    # solution 1: O(n) time
     def maxProfit(self, prices: List[int]) -> int:
+        """
+        We keep track of the minimum price we've seen so far and the maximum profit we've seen so far.
+        We update the minimum price and maximum profit as we iterate through the array.
+
+        :param prices: the list of prices
+        :return: The maximum profit that could be made by buying and selling a single share at the given
+        prices.
+        """
+        max_profit = 0
+        min_price_seen_so_far = float("inf") # float('inf') denotes an infinitly large number
+
+        for current_price in prices:
+            min_price_seen_so_far = min(min_price_seen_so_far, current_price)
+            profit_if_sold_now = current_price - min_price_seen_so_far
+            max_profit = max(max_profit, profit_if_sold_now)
+
+        return max_profit
+
+    # solution 2:
+    def maxProfit_2(self, prices: List[int]) -> int:
         """
         We start with a left pointer at the beginning of the array and a right pointer at the second
         element. We then check to see if the element to the right is greater than the element to the
