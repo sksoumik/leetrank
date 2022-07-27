@@ -22,18 +22,17 @@ class Solution:
         :type targetSum: int
         :return: bool
         """
-        # if the tree has no root
+
         if root is None:
             return False
 
-        # if the root has no left or right leaf
-        # means we only have root val
         if root.left is None and root.right is None:
             return root.val == targetSum
 
-        # if we have left or right leafs
-        return self.hasPathSum(root.left, targetSum - root.val) or self.hasPathSum(
-            root.right, targetSum - root.val
+        targetSum = targetSum - root.val
+
+        return self.hasPathSum(root.left, targetSum) or self.hasPathSum(
+            root.right, targetSum
         )
 
 
