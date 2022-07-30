@@ -10,6 +10,7 @@
 from typing import List
 from operator import xor
 from functools import reduce
+from collections import Counter
 
 
 class Solution:
@@ -24,6 +25,20 @@ class Solution:
         the items of an iterable, from left to right, so as to reduce the iterable to a single value.
         """
         return reduce(xor, nums)
+
+    # solution 2 using Counter
+    def singleNumber_2(self, nums: List[int]) -> int:
+        c  = Counter(nums)
+        for k, v in c.items():
+            if v == 1:
+                return k
+
+    # solution 3 using count
+    def singleNumber_3(self, nums: List[int]) -> int:
+        for num in nums:
+            if nums.count(num) == 1:
+                return num
+        
 
 
 if __name__ == "__main__":
