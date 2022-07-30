@@ -10,10 +10,18 @@ import re
 
 
 class Solution:
-    def isPalindrome(self, s: str) -> bool:
+    # solution 1
+    def isPalindrome_1(self, s: str) -> bool:
         s = s.lower()
         # remove all non alphanumeric characters
         s = re.sub(r"[^a-zA-Z0-9]", "", s)
+        return s == s[::-1]
+
+    # solution 2
+    def isPalindrome(self, s: str) -> bool:
+        s = s.lower()
+        # remove all non alphanumeric characters using isalnum()
+        s = [c for c in s if c.isalnum()]
         return s == s[::-1]
 
 
