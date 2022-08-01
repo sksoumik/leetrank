@@ -12,6 +12,7 @@ from typing import List
 
 
 class Solution:
+    # O(n log n)
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
         """
         We start with two pointers, one at the beginning of the array and one at the end.
@@ -43,6 +44,18 @@ class Solution:
             else:
                 right -= 1
         return []
+
+    # O(n): same as the two sum except it's 1-indexed
+    def twoSum_2(self, numbers: List[int], target: int) -> List[int]:
+        hash_table = {}
+        
+        for idx, num in enumerate(numbers):
+            comp = target - num
+            
+            if comp in hash_table:
+                return [hash_table[comp] + 1, idx+1]
+            
+            hash_table[num] = idx
 
 
 if __name__ == "__main__":

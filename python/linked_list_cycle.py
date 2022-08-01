@@ -20,7 +20,7 @@ class Solution:
     def hasCycle(self, head: ListNode) -> bool:
         # If we ever encounter a node that we've already seen, then we know there's a cycle
         visited = set()
-        while head:
+        while head: 
             if head in visited:
                 return True
             visited.add(head)
