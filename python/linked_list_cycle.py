@@ -18,25 +18,14 @@ class ListNode:
 
 class Solution:
     def hasCycle(self, head: ListNode) -> bool:
-        """
-        Traverse the list one by one and keep putting the node addresses in a Hash Table.
-        At any point, if NULL is reached then return false,
-        and if the next of the current nodes points to any of the
-        previously stored nodes in  Hash then return true.
-        """
-        # hash table
-        hash = set()
+        # If we ever encounter a node that we've already seen, then we know there's a cycle
+        visited = set()
         while head:
-            # If we already have this node in hashmap it means there is a cycle.
-            # because we are at the same node again as we have already visited it once.
-            if head in hash:
+            if head in visited:
                 return True
-            # otherwise add it to hash map
-            hash.add(head)
-
+            visited.add(head)
             # move to next node
             head = head.next
-
         # if we traverse till the end and there is no cycle then return false
         return False
 
