@@ -60,17 +60,17 @@ class Solution:
         triplets = []
 
         for i in range(0, len(nums) - 2):
-            j, k = i + 1, len(nums) - 1
-            while j < k:
-                three_sum = nums[i] + nums[j] + nums[k]
+            p1, p2 = i + 1, len(nums) - 1
+            while p1 < p2:
+                three_sum = nums[i] + nums[p1] + nums[p2]
                 if three_sum == 0:
-                    triplets.append(tuple(sorted([nums[i], nums[j], nums[k]])))
-                    j += 1
-                    k -= 1
+                    triplets.append(tuple(sorted([nums[i], nums[p1], nums[p2]])))
+                    p1 += 1
+                    p2 -= 1
                 elif three_sum < 0:
-                    j += 1
+                    p1 += 1
                 else:
-                    k -= 1
+                    p2 -= 1
 
         return list(set(triplets))
 

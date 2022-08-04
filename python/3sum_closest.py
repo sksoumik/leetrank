@@ -15,7 +15,8 @@ from typing import List
 from itertools import combinations
 
 class Solution:
-    def threeSumClosest(self, nums: List[int], target: int) -> int:
+    # works but time limit exceeded
+    def threeSumClosest_2(self, nums: List[int], target: int) -> int:
         nums.sort()
         # all 3 combinations
         combs = [list(c) for c in combinations(nums, 3)]
@@ -28,6 +29,30 @@ class Solution:
         min_index = diffs.index(min(diffs))
         print(min_index)
         return sums[min_index]
+
+    # accepted solution
+    def threeSumClosest(self, nums: List[int]) -> List[List[int]]:
+        nums.sort()
+
+        if len(nums) < 3:
+            return []
+
+        triplets = []
+
+        for i in range(0, len(nums) - 2):
+            j, k = i + 1, len(nums) - 1
+            while j < k:
+                three_sum = nums[i] + nums[j] + nums[k]
+                if three_sum == 0:
+                    triplets.append(tuple(sorted([nums[i], nums[j], nums[k]])))
+                    j += 1
+                    k -= 1
+                elif three_sum < 0:
+                    j += 1
+                else:
+                    k -= 1
+
+        return list(set(triplets))
 
 if __name__ == "__main__":
     nums = [-1,2,1,-4] 
