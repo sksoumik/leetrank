@@ -31,28 +31,31 @@ class Solution:
         return sums[min_index]
 
     # accepted solution
-    def threeSumClosest(self, nums: List[int]) -> List[List[int]]:
+    def threeSumClosest(self, nums, target):
         nums.sort()
 
         if len(nums) < 3:
             return []
 
-        triplets = []
+        best_3sum_closest_to_target = float("inf")
 
         for i in range(0, len(nums) - 2):
-            j, k = i + 1, len(nums) - 1
-            while j < k:
-                three_sum = nums[i] + nums[j] + nums[k]
-                if three_sum == 0:
-                    triplets.append(tuple(sorted([nums[i], nums[j], nums[k]])))
-                    j += 1
-                    k -= 1
-                elif three_sum < 0:
-                    j += 1
-                else:
-                    k -= 1
+            p1, p2 = i + 1, len(nums) - 1
+            while p1 < p2:
+                three_sum = nums[i] + nums[p1] + nums[p2]
+                if three_sum == target:
+                    return three_sum
 
-        return list(set(triplets))
+                if abs(three_sum - target) < abs(best_3sum_closest_to_target - target):
+                    best_3sum_closest_to_target = three_sum
+                
+                if three_sum < target:
+                    p1 += 1
+                else:
+                    p2 -= 1
+
+        return best_3sum_closest_to_target
+
 
 if __name__ == "__main__":
     nums = [-1,2,1,-4] 
