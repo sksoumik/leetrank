@@ -34,42 +34,49 @@ class Solution:
         result = [list(i) for i in set(tuple(i) for i in combs)]
         return result
 
-    # accepted solution
-    def threeSum(self, nums: List[int]) -> List[List[int]]:
-        """
-        We sort the array, and then iterate through the array, using the current element as the first
-        element in the triplet.
+    # Brute force solution: O(n^3)
+    def threeSum_2(self, nums: List[int]) -> List[List[int]]:
+        if len(nums) < 3:
+            return []
 
-        We then use a two pointer approach to find the other two elements.
+        triplets = []
 
-        We use a set to avoid duplicates.
+        for i in range(0, len(nums) - 2):
+            for j in range(i + 1, len(nums) - 1):
+                for k in range(j + 1, len(nums)):
+                    if nums[i] + nums[j] + nums[k] == 0:
+                        triplets.append(tuple(sorted([nums[i], nums[j], nums[k]])))
 
-        :param nums: the list of numbers
-        :type nums: List[int]
-        :return: A list of lists of integers.
-        """
+        return list(set(triplets))
+
+    # accepted solution: O (n^2)
+    # video explanation: https://youtu.be/hNRS81I1OZ8
+    def threeSum_3(self, nums: List[int]) -> List[List[int]]:
         nums.sort()
-        output = set()
 
-        for k in range(len(nums)):
-            target = -nums[k]
-            i, j = k + 1, len(nums) - 1
-            while i < j:
-                sum_two = nums[i] + nums[j]
-                if sum_two == target:
-                    output.add((nums[k], nums[i], nums[j]))
-                    i += 1
-                    j -= 1
-                elif sum_two < target:
-                    i += 1
+        if len(nums) < 3:
+            return []
+
+        triplets = []
+
+        for i in range(0, len(nums) - 2):
+            j, k = i + 1, len(nums) - 1
+            while j < k:
+                three_sum = nums[i] + nums[j] + nums[k]
+                if three_sum == 0:
+                    triplets.append(tuple(sorted([nums[i], nums[j], nums[k]])))
+                    j += 1
+                    k -= 1
+                elif three_sum < 0:
+                    j += 1
                 else:
-                    j -= 1
+                    k -= 1
 
-        return [list(i) for i in output]
+        return list(set(triplets))
 
 
 if __name__ == "__main__":
     sol = Solution()
-    print(sol.threeSum([-1, 0, 1, 2, -1, -4]))
+    print(sol.threeSum_2([-1, 0, 1, 2, -1, -4]))
     print(sol.threeSum([0, 1, 1]))
     print(sol.threeSum([0, 0, 0]))

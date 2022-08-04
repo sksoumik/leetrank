@@ -2,7 +2,9 @@ LeetCode Profile: https://leetcode.com/sksoumik/
 
 My Solutions can be found in the following directories:
 
-> [python/](https://github.com/sksoumik/leetrank/tree/main/python) > [javascript/](https://github.com/sksoumik/leetrank/tree/main/javascript)
+> [python/](https://github.com/sksoumik/leetrank/tree/main/python) 
+<br/>
+> [javascript/](https://github.com/sksoumik/leetrank/tree/main/javascript)
 
 # Top Resources to Follow
 
