@@ -2,8 +2,7 @@ LeetCode Profile: https://leetcode.com/sksoumik/
 
 My Solutions can be found in the following directories:
 
-> [python/](https://github.com/sksoumik/leetrank/tree/main/python) 
-> [javascript/](https://github.com/sksoumik/leetrank/tree/main/javascript)
+> [python/](https://github.com/sksoumik/leetrank/tree/main/python) > [javascript/](https://github.com/sksoumik/leetrank/tree/main/javascript)
 
 # Top Resources to Follow
 
@@ -14,6 +13,8 @@ My Solutions can be found in the following directories:
 - [LEETCODE PATTERNS](https://seanprashad.com/leetcode-patterns/)
 - [Coding interview cheatsheet: Best practices before, during and after](https://www.techinterviewhandbook.org/coding-interview-cheatsheet/)
 - [The 30 most common Software Engineer behavioral interview questions](https://www.techinterviewhandbook.org/behavioral-interview-questions/)
+- [Top coding interview patterns](https://designgurus.org/blog/grokking-leetcode)
+- [14 Most Popular Amazon Coding Interview Questions](https://designgurus.org/blog/amazon-14-question)
 
 ##### Videos
 
