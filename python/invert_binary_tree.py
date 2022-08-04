@@ -1,3 +1,5 @@
+# https://leetcode.com/problems/invert-binary-tree/
+
 # Given the root of a binary tree, invert the tree, and return its root.
 
 # Definition for a binary tree node.
@@ -13,4 +15,4 @@ class Solution:
         if root:
             root.left, root.right = self.invertTree(root.right), self.invertTree(root.left)
         return root
-        
+    
