@@ -2,7 +2,6 @@
 
 # Given a string s, return the longest palindromic substring in s.
 
-
 # Example 1:
 
 # Input: s = "babad"
@@ -12,7 +11,6 @@
 from itertools import combinations
 
 class Solution:
-
     # video explanation: https://youtu.be/XYQecbcd6_c
     def longestPalindrome(self, s: str) -> str:
         longest_palindrome = ""
@@ -40,17 +38,12 @@ class Solution:
 
     # time limit exceeds: O(n^3)
     def longestPalindrome_2(self, s: str) -> str:
-        # make all possible combinations of substring 
-        # and check if it is palindrome
-        # return the longest palindrome
         if len(s) == 0:
             return ""
         if len(s) == 1:
             return s
-        
         # make all possible combinations of substring
         all_substrings = [''.join(l) for i in range(len(s)) for l in combinations(s, i+1)]
-
         # check if it is palindrome
         palindromes = [i for i in all_substrings if i == i[::-1]]
         # return the longest palindrome
