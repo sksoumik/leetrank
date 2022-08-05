@@ -18,15 +18,15 @@ class Solution:
 
         for i in range(len(s)):
             # odd length
-            odd_length = self.find_palindrome(s, i, i)
-            if len(odd_length) > longest_palindrome_length:
-                longest_palindrome = odd_length
-                longest_palindrome_length = len(odd_length)
+            odd_len_palindrome = self.find_palindrome(s, i, i)
+            if len(odd_len_palindrome) > longest_palindrome_length:
+                longest_palindrome = odd_len_palindrome
+                longest_palindrome_length = len(odd_len_palindrome)
             # even length
-            even_length = self.find_palindrome(s, i, i+1)
-            if len(even_length) > longest_palindrome_length:
-                longest_palindrome = even_length
-                longest_palindrome_length = len(even_length)
+            even_len_palindrome = self.find_palindrome(s, i, i+1)
+            if len(even_len_palindrome) > longest_palindrome_length:
+                longest_palindrome = even_len_palindrome
+                longest_palindrome_length = len(even_len_palindrome)
         return longest_palindrome
 
     def find_palindrome(self, s, i, j):
