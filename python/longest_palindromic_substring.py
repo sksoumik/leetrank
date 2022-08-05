@@ -43,8 +43,12 @@ class Solution:
         if len(s) == 1:
             return s
         # make all possible combinations of substring
-        all_substrings = [''.join(l) for i in range(len(s)) for l in combinations(s, i+1)]
-        # check if it is palindrome
+        # all_substrings = [''.join(l) for i in range(len(s)) for l in combinations(s, i+1)]
+        all_substrings = []
+        for i in range(len(s)):
+            for j in combinations(s, i+1):
+                all_substrings.append(''.join(j))
+
         palindromes = [i for i in all_substrings if i == i[::-1]]
         # return the longest palindrome
         longest_palindrome = max(palindromes, key=len)
