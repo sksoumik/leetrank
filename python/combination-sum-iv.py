@@ -30,9 +30,21 @@ class Solution:
             dp[i] = sum(dp.get(i - num, 0) for num in nums)
         return dp[target]
 
+    # naive recursive solution
+    def combinationSum4_recursive(self, nums: List[int], target: int) -> int:
+        if target == 0:
+            return 1
+
+        result = 0
+        for num in nums:
+            if num <= target:
+                result += self.combinationSum4_recursive(nums, target - num)
+        return result
+
 
 if __name__ == "__main__":
     nums = [1, 2, 3]
     target = 4
     sol = Solution()
     print(sol.combinationSum4(nums, target))
+    print(sol.combinationSum4_recursive(nums, target))
