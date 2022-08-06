@@ -20,10 +20,12 @@
 # (3, 1)
 
 from typing import List
+import collections
 
 
 class Solution:
     # video explanation: https://youtu.be/dw2nMCxG0ik
+    # bottom-up dp
     def combinationSum4(self, nums: List[int], target: int) -> int:
         dp = {0: 1}
         for i in range(1, target + 1):
@@ -31,6 +33,7 @@ class Solution:
         return dp[target]
 
     # naive recursive solution
+    # time limit exceeded
     def combinationSum4_recursive(self, nums: List[int], target: int) -> int:
         if target == 0:
             return 1
