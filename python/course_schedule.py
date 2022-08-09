@@ -22,16 +22,18 @@ class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
         # define a adjacency list to represent the graph and store the prerequisites
         # put empty list for each node initially
-        pre_req_map = {i: [] for i in range(numCourses)}
+        adj_map = {i: [] for i in range(numCourses)}
 
         # add the prerequisites to the adjacency list
         for course, pre_req in prerequisites:
             # add course as key and pre_req as value
-            pre_req_map[course].append(pre_req)
+            adj_map[course].append(pre_req)
 
         # track the visited nodes to check if there is a cycle
         visited = set()
 
+        # apply dfs to determine if there is a cycle
+        # v: course, adj_map: adjacency list
         def hasCycle(v, stack):
             # if the node is already visited, return true
             if v in visited:
@@ -45,7 +47,8 @@ class Solution:
             stack.append(v)
 
             # check if there is a cycle in the graph
-            for pre_req in pre_req_map[v]:
+            # check for all values in the adjacency list of the node
+            for pre_req in adj_map[v]:
                 if hasCycle(pre_req, stack):
                     return True
 
