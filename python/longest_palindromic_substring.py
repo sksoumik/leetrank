@@ -13,27 +13,29 @@ from itertools import combinations
 class Solution:
     # video explanation: https://youtu.be/XYQecbcd6_c
     def longestPalindrome(self, s: str) -> str:
-        longest_palindrome = ""
-        longest_palindrome_length = 0
-
+        result = ""
         for i in range(len(s)):
-            # odd length
-            odd_len_palindrome = self.find_palindrome(s, i, i)
-            if len(odd_len_palindrome) > longest_palindrome_length:
-                longest_palindrome = odd_len_palindrome
-                longest_palindrome_length = len(odd_len_palindrome)
-            # even length
-            even_len_palindrome = self.find_palindrome(s, i, i+1)
-            if len(even_len_palindrome) > longest_palindrome_length:
-                longest_palindrome = even_len_palindrome
-                longest_palindrome_length = len(even_len_palindrome)
-        return longest_palindrome
+            # odd length palindrome
+            odd_palindrome = self.check_palindrome(s, i, i)
 
-    def find_palindrome(self, s, i, j):
-        while i >= 0 and j < len(s) and s[i] == s[j]:
-            i -= 1
-            j += 1
-        return s[i+1:j]
+            # even length palindrome
+            even_palindrome = self.check_palindrome(s, i, i+1)
+
+            # longest palindrome
+            if len(odd_palindrome) > len(result):
+                result = odd_palindrome
+            if len(even_palindrome) > len(result):
+                result = even_palindrome
+        return result
+
+    
+
+    def check_palindrome(self, s, low, high):
+        while low >= 0 and high < len(s) and s[low] == s[high]:
+            low -= 1
+            high += 1
+        return s[low + 1:high]
+        
 
 
     # time limit exceeds: O(n^3)
