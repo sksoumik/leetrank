@@ -4,6 +4,7 @@
 # Explanation: [4,-1,2,1] has the largest sum = 6.
 
 
+# approach 1
 def fn_max_subarray(nums):
     """
     We keep track of the current sum and the maximum sum. If the current sum is greater than the maximum
@@ -27,10 +28,23 @@ def fn_max_subarray(nums):
     return max_sum
 
 
+from typing import List
+
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        current_sum = maximum_sum = nums[0]
+
+        for num in nums:
+            current_sum = max(num, current_sum + num)
+            maximum_sum = max(maximum_sum, current_sum)
+
+        return maximum_sum
+
 
 if __name__ == "__main__":
     arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
     print(fn_max_subarray(arr))
+    print(Solution().maxSubArray(arr))
 
     # arr2 = [1]
     # print(fn_max_subarray(arr2))
