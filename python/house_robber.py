@@ -17,17 +17,16 @@ from typing import List
 class Solution:
     def rob(self, nums: List[int]) -> int:
         """
-        "rob1" is the maximum amount of money that can be robbed from the first i-1 houses, and "rob2"
-        is the maximum amount of money that can be robbed from the first i houses
+        "rob1" is the maximum amount of money that can be robbed from the first i-1 houses
+        "rob2" is the maximum amount of money that can be robbed from the first i houses
 
         :param nums: the list of houses
         :type nums: List[int]
         :return: The maximum amount of money that can be robbed from the houses.
         """
         rob1, rob2 = 0, 0
-        for i in range(len(nums)):
-            # swap the values of two variables.
-            rob1, rob2 = rob2, max(rob1 + nums[i], rob2)
+        for num in nums:
+            rob1, rob2 = rob2, max(rob1 + num, rob2)
         return rob2
 
 
