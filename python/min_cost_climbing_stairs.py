@@ -14,17 +14,20 @@
 # - Pay 15 and climb two steps to reach the top.
 # The total cost is 15.
 
-# video explanation: https://youtu.be/ktmzAZWkEZ0
-
+# video explanation: https://youtu.be/uJmMJcxbozw
 from typing import List
 
 
 class Solution:
     def minCostClimbingStairs(self, cost: List[int]) -> int:
-        cost.append(0)
-        for i in range(len(cost) - 3, -1, -1):
-            cost[i] += min(cost[i + 1], cost[i + 2])
-        return min(cost[0], cost[1])
+        # [1,100, 1, 1, 1, 100, 1, 1, 100, 1]
+        # start calculating from index 2, because we need 2 previous steps to calculate the current step
+        # [1,100, 2, 3, 3, 103, 4, 5, 104, 6]
+
+        for step in range(2, len(cost)):
+            cost[step] += min(cost[step - 1], cost[step - 2])
+        # return the minimum between the last two steps
+        return min(cost[-1], cost[-2])
 
 
 if __name__ == "__main__":
