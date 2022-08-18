@@ -1,5 +1,5 @@
-# leetcode premium
-# https://wentao-shao.gitbook.io/leetcode/two-pointers/1099.two-sum-less-than-k
+# leetcode premium problem
+# https://leetcode.com/problems/two-sum-less-than-k/
 
 # Given some array of positive integers A, 
 # find the length of the longest subarray such that 
