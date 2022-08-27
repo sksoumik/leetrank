@@ -10,42 +10,40 @@ from typing import List
 
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
-        rows, cols = len(grid), len(grid[0])
+
+        # number of rows
+        rows = len(grid)
+        # number of cols
+        cols = len(grid[0])
+
         count = 0
+
         for i in range(rows):
             for j in range(cols):
                 if grid[i][j] == "1":
                     self.dfs(i, j, rows, cols, grid)
-                    # dfs returns true means we found a new island
                     count += 1
         return count
 
     def dfs(self, i, j, rows, cols, grid):
-        """
-        We are checking if the current index is out of bounds or if the current index is a 0. If it is,
-        we return false.
+        # This is checking if the current index is out of bounds or if the current index is not a 1.
+        if i >= rows or i < 0 or j >= cols or j < 0 or grid[i][j] != "1":
+            return
 
-        If it isn't, we mark the current index as visited and then recursively call the function on the
-        four adjacent indices
+        # Use # that modifies the input to ensure that the count isn't incremented where we could accidentally
+        # traverse the same '1' cell multiple times and get into an infinite loop within an island
+        # it's basically a implicit way of marking the visited square/nodes instead of putting the
+        # visited nodes in an visited array
+        grid[i][j] = "#"
 
-        :param i: The current row index
-        :param j: The current column index
-        :param rows: The number of rows in the grid
-        :param cols: The number of columns in the grid
-        :param grid: This is the grid that we are given
-        :return: The number of islands.
-        """
-        if i >= rows or i < 0 or j >= cols or j < 0 or grid[i][j] == "0":
-            return False
-
-        # Marking the current index as visited.
-        grid[i][j] = "0"
-
+        # top
         self.dfs(i, j + 1, rows, cols, grid)
-        self.dfs(i + 1, j, rows, cols, grid)
+        # bottom
         self.dfs(i, j - 1, rows, cols, grid)
+        # left
         self.dfs(i - 1, j, rows, cols, grid)
-        return True
+        # right
+        self.dfs(i + 1, j, rows, cols, grid)
 
 
 if __name__ == "__main__":
