@@ -7,6 +7,8 @@ from typing import List
 
 
 class Solution:
+
+    # O(N*M) where N is the length of the shortest list and M is the number of lists
     def longestCommonPrefix(self, strs: List[str]) -> str:
         """
         We zip the list of strings together, and then iterate through the zipped list.
