@@ -28,6 +28,7 @@ class Solution:
         if not nums:
             return None
 
+        # pivot = nums[0]
         pivot = random.choice(nums)
 
         # all numbers which are higher than pivot will be on high list
