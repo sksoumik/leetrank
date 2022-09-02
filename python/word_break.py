@@ -24,6 +24,7 @@ class Solution:
     def _wordBreak(self, s: str, wordDict: List[str]) -> bool:
         # recursive solution
 
+        # if the string is empty, return True
         if not s:
             return True
 
@@ -36,12 +37,13 @@ class Solution:
 
     # dynamic programming solution
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
-
         if not s:
             return True
 
-        dp = [False] * (len(s) + 1)  # [False, False, False, False]
-        dp[0] = True                 # [True, False, False, False]
+        # initialize every element in the array to False
+        dp = [False] * (len(s) + 1)  # +1 is for our base case
+        # base case
+        dp[0] = True  # [True, False, False, False]
 
         for i in range(1, len(s) + 1):
             for j in range(i):
@@ -56,16 +58,24 @@ if __name__ == "__main__":
     sol = Solution()
     s = "leetcode"
     wordDict = ["leet", "code"]
-    print(sol._wordBreak(s, wordDict))
+    print(sol._wordBreak(s, wordDict))  # True
 
     s = "catsandog"
     wordDict = ["cats", "dog", "sand", "and", "cat"]
-    print(sol._wordBreak(s, wordDict))
+    print(sol._wordBreak(s, wordDict))  # False
+
+    s = "applepenapple"
+    wordDict = ["apple", "pen"]
+    print(sol._wordBreak(s, wordDict))  # True
 
     s = "leetcode"
     wordDict = ["leet", "code"]
-    print(sol.wordBreak(s, wordDict))
+    print(sol.wordBreak(s, wordDict))  # True
 
     s = "catsandog"
     wordDict = ["cats", "dog", "sand", "and", "cat"]
-    print(sol.wordBreak(s, wordDict))
+    print(sol.wordBreak(s, wordDict))  # False
+
+    s = "applepenapple"
+    wordDict = ["apple", "pen"]
+    print(sol.wordBreak(s, wordDict))  # True
