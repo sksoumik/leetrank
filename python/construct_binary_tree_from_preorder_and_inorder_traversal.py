@@ -43,7 +43,7 @@ class Solution:
 
         # right subtree
         root.right = self.buildTree(preorder, inorder[root_index + 1 :])
-        return root
+        return root 
 
     # print tree in preorder traverse
     def printTree(self, root: Optional[TreeNode]) -> None:
