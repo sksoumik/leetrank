@@ -17,16 +17,22 @@ class Solution:
         return self.isMirror(root.left, root.right)
 
     def isMirror(self, left, right):
+        # if the left subtree is empty and right subtree is empty
         if left is None and right is None:
             return True
-
+        # if one is empty and another is not
         if left is None or right is None:
             return False
 
         return (
+            # first check if the root of left subtree and right subtree is same
             left.val == right.val
-            and self.isMirror(left.left, right.right)
-            and self.isMirror(left.right, right.left)
+            and
+            # then we check, left subtree's left node should be equal to right subtree's right node
+            self.isMirror(left.left, right.right)
+            and
+            # then we check, left subtree's right node should be equal to right subtree's left node
+            self.isMirror(left.right, right.left)
         )
 
 
