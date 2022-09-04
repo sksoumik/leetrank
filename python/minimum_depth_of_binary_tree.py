@@ -4,6 +4,8 @@
 # root node down to the nearest leaf node.
 # Note: A leaf is a node with no children.
 
+from typing import List, Optional
+
 
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -13,30 +15,26 @@ class TreeNode:
 
 
 class Solution:
-    def minDepth(self, root) -> int:
-        """
-        :param root: the root of the tree
-        :return: The minimum depth of the tree.
-        """
-        # If the root is None, return 0
-        if not root:
+    def minDepth(self, root: Optional[TreeNode]) -> int:
+
+        # if the tree is empty
+        if root is None:
             return 0
 
-        # If the root is a leaf, return 1
-        if not root.left and not root.right:
+        # id there is no left and right subtree
+        if root.left is None and root.right is None:
             return 1
 
-        # If the root has only one child,
-        # return 1 + the minDepth of the child.
-        if not root.left:
-            return 1 + self.minDepth(root.right)
+        # if there is no left subtree
+        if root.left is None:
+            return self.minDepth(root.right) + 1
 
-        if not root.right:
-            return 1 + self.minDepth(root.left)
+        # if there is no right subtree
+        if root.right is None:
+            return self.minDepth(root.left) + 1
 
-        # If the root has two children,
-        # return 1 + the minDepth of the smaller child.
-        return 1 + min(self.minDepth(root.left), self.minDepth(root.right))
+        # if left and right subtree both exists
+        return min(self.minDepth(root.left), self.minDepth(root.right)) + 1
 
 
 # main function

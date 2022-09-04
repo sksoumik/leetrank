@@ -34,6 +34,8 @@ from typing import List
 class Solution:
     # dfs:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+        candidates.sort()
+        
         answer = []
 
         # try out each possible cases
