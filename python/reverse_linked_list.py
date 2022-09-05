@@ -2,6 +2,7 @@
 
 # Given the head of a singly linked list, reverse the list, and return the reversed list.
 
+
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
@@ -9,55 +10,32 @@ class ListNode:
 
 
 class Solution:
-    def reverseList(self, head):
-        """
-        Method 1: Iterative way
-        We are reversing the direction of the pointers of the nodes in the linked list.
-        
-        :param head: the head of the linked list
-        :return: The reversed linked list.
-        """
+    # time complexity: O(n), space complexity: O(1)
+    # space is O(1), because we are only using two pointers, no extra data structure
+    # iterative solution
+    def reverseListIter(self, head):
+        # iterate and swap
+        previous, current = None, head  # we will store reversed list in previous
+        while current:
+            current.next, previous, current = previous, current, current.next
 
-        prev = None
-        curr = head
-        while curr:
-            next = curr.next
-            curr.next = prev
-            prev = curr
-            curr = next
-        return prev
+        return previous
 
-    def reverseList_2(self, head):
-        """
-        Method 2: Recursive way
-        We are reversing the direction of the pointers of the nodes in the linked list. 
-        We are also reversing the order of the nodes in the linked list.
-
-        :param head: the head of the linked list
-        :return: The reversed linked list.
-        """
-        # This is a base case for the recursive function.
-        if not head or not head.next:
+    # recursive solution
+    # time complexity: O(n), space complexity: O(1)
+    def reverseListRec(self, head):
+        # base case
+        if head is None or head.next is None:
             return head
-        # Recursively calling the function on the next node in the linked list.
-        new_head = self.reverseList_2(head.next)
-        # Reversing the direction of the pointers of the nodes in the linked list.
-        head.next.next = head
-        # Setting the next pointer of the last node in the linked list to None.
-        head.next = None
-        return new_head
 
-    
-    # print the linked list
+        node, head.next.next, head.next = self.reverseListRec(head.next), head, None
+        return node
+
     def print_list(self, head):
-        """
-        Prints the values of the linked list.
-        
-        :param head: the head of the linked list
-        """
         while head:
             print(head.val, end=" ")
             head = head.next
+
 
 if __name__ == "__main__":
     head = ListNode(1)
@@ -66,9 +44,14 @@ if __name__ == "__main__":
     head.next.next.next = ListNode(4)
 
     sol = Solution()
-    sol.print_list(head)
-    print("\n")
-    sol.print_list(sol.reverseList(head))
+    sol.print_list(head)  # 1 2 3 4
+    print()
+    sol.print_list(sol.reverseListIter(head))  # 4 3 2 1
+    print()
 
+    head = ListNode(1)
+    head.next = ListNode(2)
+    head.next.next = ListNode(3)
+    head.next.next.next = ListNode(4)
 
-        
+    sol.print_list(sol.reverseListRec(head))  # 4 3 2 1
