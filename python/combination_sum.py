@@ -35,7 +35,7 @@ class Solution:
     # dfs:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         candidates.sort()
-        
+
         answer = []
 
         # try out each possible cases
@@ -62,17 +62,42 @@ class Solution:
     def combinationSum_DP(self, candidates: List[int], target: int) -> List[List[int]]:
         dp = [[] for _ in range(target + 1)]
 
-        for c in candidates:
-            for i in range(c, target + 1):
-                if i == c:
-                    dp[i].append([c])
-                for comb in dp[i - c]:
-                    dp[i].append(comb + [c])
-        return dp[-1]
+        for i in candidates:
+            for j in range(i, target + 1):
+                if j == i:
+                    dp[j].append([i])
+                else:
+                    for k in dp[j - i]:
+                        dp[j].append(k + [i])
+
+        return dp[target]
+    
+    # using cache for dynamic programming
+    @lru_cache(None)
+    def combinationSum_DP_cache(self, candidates: List[int], target: int) -> List[List[int]]:
+        result = []
+
+        def dfs(current_combination, current_sum, idx):
+            if current_sum > target:
+                return
+            if current_sum == target:
+                result.append(current_combination)
+                return
+            for i in range(idx, len(candidates)):
+                dfs(
+                    current_combination + [candidates[i]],
+                    current_sum + candidates[i],
+                    i,
+                )
+
+        dfs([], 0, 0)
+        return result
+
 
 
 if __name__ == "__main__":
     s = Solution()
-    print(s.combinationSum([2, 3, 5], 8))
+    # print(s.combinationSum([2, 3, 5], 8))
+    # print(s.combinationSum([2, 3, 5], 1))
     print(s.combinationSum([2, 3, 6, 7], 7))
-    print(s.combinationSum([2, 3, 5], 1))
+    print(s.combinationSum_DP([2, 3, 6, 7], 7))
