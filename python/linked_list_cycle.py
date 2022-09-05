@@ -17,16 +17,28 @@ class ListNode:
 
 
 class Solution:
-    def hasCycle(self, head: ListNode) -> bool:
+    # time: O(n), space: O(n)
+    def _hasCycle(self, head: ListNode) -> bool:
         # If we ever encounter a node that we've already seen, then we know there's a cycle
         visited = set()
-        while head: 
+        while head:
             if head in visited:
                 return True
             visited.add(head)
             # move to next node
             head = head.next
         # if we traverse till the end and there is no cycle then return false
+        return False
+
+    # time: O(n), space: O(1)
+    def hasCycle(self, head: ListNode) -> bool:
+        # use two pointers
+        slow = fast = head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast:
+                return True
         return False
 
 
@@ -41,4 +53,4 @@ if __name__ == "__main__":
     head.next.next.next.next.next = ListNode(5)
     head.next.next.next.next.next.next = head.next.next
 
-    print(Solution().hasCycle(head))
+    print(Solution().hasCycle(head))  # True
