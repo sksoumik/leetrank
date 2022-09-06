@@ -12,23 +12,23 @@
 
 
 from typing import List
-from itertools import combinations
 
-class Solution:
-    # works but time limit exceeded
-    def threeSumClosest_2(self, nums: List[int], target: int) -> int:
+class Solution:    
+
+    # brute force: time complexity O(n^3)
+    def _threeSumClosest(self, nums, target):
         nums.sort()
-        # all 3 combinations
-        combs = [list(c) for c in combinations(nums, 3)]
-        # get the sum of each combination
-        sums = [sum(c) for c in combs]
-        # get the difference between the target and each sum
-        diffs = [abs(target - s) for s in sums]
-        print(diffs)
-        # get the index of the minimum difference
-        min_index = diffs.index(min(diffs))
-        print(min_index)
-        return sums[min_index]
+        min_diff = float("inf")
+        min_sum = 0
+        for i in range(len(nums)):
+            for j in range(i + 1, len(nums)):
+                for k in range(j + 1, len(nums)):
+                    three_sum = nums[i] + nums[j] + nums[k]
+                    diff = abs(three_sum - target)
+                    if diff < min_diff:
+                        min_diff = diff
+                        min_sum = three_sum
+        return min_sum
 
     # accepted solution
     def threeSumClosest(self, nums, target):
