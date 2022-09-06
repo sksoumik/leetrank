@@ -11,12 +11,11 @@
 # Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last index.
 
 
-# code explanation can be found here: https://youtu.be/Yan0cv2cLy8?t=606
-
 from typing import List
 
 
 class Solution:
+    # https://youtu.be/Yan0cv2cLy8?t=606
     def canJump(self, nums: List[int]) -> bool:
         """
         greedy approach : O (n)
@@ -36,6 +35,19 @@ class Solution:
 
         # return True if goal == 0 else False
         return goal == 0
+
+    # second approach
+    # time complexity O(n)
+    # video explanation: https://youtu.be/muDPTDrpS28
+    def _canJump(self, nums: List[int]) -> bool:
+        reachable = 0
+
+        for idx, num in enumerate(nums):
+            if idx > reachable:
+                return False
+            reachable = max(reachable, idx + num)
+
+        return True
 
 
 if __name__ == "__main__":
