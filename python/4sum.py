@@ -21,41 +21,30 @@ from typing import List
 
 
 class Solution:
+    # time complexity O(n^3)
+    # space complexity O(n)
     def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
-        """
-        :param nums: the list of numbers
-        :type nums: List[int]
-        :param target: the target sum
-        :type target: int
-        :return: the list of quadruplets that sum to target
-        :rtype: List[List[int]]
-        """
         nums.sort()
         quadruplets = []
-        for i in range(len(nums) - 3):
-            if i > 0 and nums[i] == nums[i - 1]:
-                continue
-            for j in range(i + 1, len(nums) - 2):
-                if j > i + 1 and nums[j] == nums[j - 1]:
-                    continue
-                left, right = j + 1, len(nums) - 1
-                while left < right:
-                    sum = nums[i] + nums[j] + nums[left] + nums[right]
-                    if sum == target:
-                        quadruplets.append([nums[i], nums[j], nums[left], nums[right]])
-                        left += 1
-                        right -= 1
-                        while left < right and nums[left] == nums[left - 1]:
-                            left += 1
-                        while left < right and nums[right] == nums[right + 1]:
-                            right -= 1
-                    elif sum < target:
-                        left += 1
-                    else:
-                        right -= 1
-        return quadruplets
 
-    # time limit exceeds
+        for i in range(0, len(nums)):
+            for j in range(i + 1, len(nums)):
+                goal = target - nums[i] - nums[j]
+                p1, p2 = j + 1, len(nums) - 1
+                while p1 < p2:
+                    two_sum = nums[p1] + nums[p2]
+                    if two_sum == goal:
+                        quadruplets.append((nums[i], nums[j], nums[p1], nums[p2]))
+                        p1 += 1
+                        p2 -= 1
+                    elif two_sum < goal:
+                        p1 += 1
+                    else:
+                        p2 -= 1
+
+        return list(set(quadruplets))
+
+    # brute force: using built-in combinations
     def fourSum2(self, nums: List[int], target: int) -> List[List[int]]:
         # using itertools
         from itertools import combinations
@@ -68,6 +57,19 @@ class Solution:
         for combination in list(set(all_combinations)):
             if sum(combination) == target:
                 quadruplets.append(list(combination))
+
+        return quadruplets
+
+    # brute force: time complexity O(n^4)
+    # no external libraries
+    def _fourSum(nums, target):
+        quadruplets = []
+        for i in range(0, len(nums) - 3):
+            for j in range(i + 1, len(nums) - 2):
+                for k in range(j + 1, len(nums) - 1):
+                    for l in range(k + 1, len(nums)):
+                        if nums[i] + nums[j] + nums[k] + nums[l] == target:
+                            quadruplets.append([nums[i], nums[j], nums[k], nums[l]])
 
         return quadruplets
 
