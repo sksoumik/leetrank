@@ -6,42 +6,53 @@
 # Each column must contain the digits 1-9 without repetition.
 # Each of the nine 3 x 3 sub-boxes of the grid must contain the digits 1-9 without repetition.
 from typing import List
-import sys
-
 
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
-        # check row
+        """
+        [["5","3",".",".","7",".",".",".","."]
+        ,["6",".",".","1","9","5",".",".","."]
+        ,[".","9","8",".",".",".",".","6","."]
+        ,["8",".",".",".","6",".",".",".","3"]
+        ,["4",".",".","8",".","3",".",".","1"]
+        ,["7",".",".",".","2",".",".",".","6"]
+        ,[".","6",".",".",".",".","2","8","."]
+        ,[".",".",".","4","1","9",".",".","5"]
+        ,[".",".",".",".","8",".",".","7","9"]]
+        
+        """
+        # rows as line
         for row in board:
-            if not self.isValidRow(row):
-                return False
-        # check column
-        for i in range(9):
-            column = [board[j][i] for j in range(9)]
-            if not self.isValidRow(column):
+            if not self.isValid(row):
                 return False
         
-        # check 3x3
-        # Iterating through the 3x3 submatrices of the sudoku board.
+        # cols as a line
+        for col in zip(*board):
+            if not self.isValid(list(col)):
+                return False
+        
+        # 3*3 grid as line
+        
         for i in range(0, 9, 3):
             for j in range(0, 9, 3):
-                sub_matrix = [board[i + k][j + l] for k in range(3) for l in range(3)]
-                # print(sub_matrix)
-                if not self.isValidRow(sub_matrix):
+                sub_boxes = []
+                
+                for k in range(3):
+                    for l in range(3):
+                        sub_boxes.append(board[i+k][j+l])
+                
+                if not self.isValid(sub_boxes):
                     return False
         return True
-
-    def isValidRow(self, row: List[str]) -> bool:
-        """
-        It takes a row of a sudoku board, removes all the "."s, and checks if the length of the row is
-        equal to the length of the set of the row
+                        
+            
         
-        :param row: List[str]
-        :type row: List[str]
-        :return: A boolean value
-        """
-        row = [i for i in row if i != "."]
-        if len(row) != len(set(row)):
+    
+    def isValid(self, line):
+        # line = [i for i in line if i != "."]
+        line = list(filter(lambda x: x != ".", line))
+        
+        if len(line) != len(set(line)):
             return False
         return True
 
