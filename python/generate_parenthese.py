@@ -17,6 +17,7 @@ from typing import List
 class Solution:
     # video explanation: https://youtu.be/s9fokUqJ76A
 
+    # time complexity O(2^n)
     def generateParenthesis(self, n: int) -> List[str]:
         # a stack where the parenthesis are pushed and popped
         stack = []
@@ -37,6 +38,7 @@ class Solution:
                 stack.pop()
 
             # if close_count < open_count, push a close parenthesis
+            # we can only push a close parenthesis, if close_count < open_count
             if close_count < open_count:
                 stack.append(")")
                 backtrack(open_count, close_count + 1)
@@ -45,7 +47,6 @@ class Solution:
 
         backtrack(0, 0)
         return result
-
 
 if __name__ == "__main__":
     s = Solution()
