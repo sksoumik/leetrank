@@ -17,16 +17,10 @@ class Solution:
     # go through the intervals sorted by start coordinate and either combine the current 
     # interval with the previous one if they overlap, or add it to the output by itself if they don't.
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
-
-        if len(intervals) == 0:
-            return []
-
         # sort by start coordinate of intervals
         intervals.sort(key=lambda x: x[0])
-        
         output = [intervals[0]]
         for i in range(1, len(intervals)):
-            
             # intervals[i][0]  means the start/first coordinate of the current array
             # output[-1][1] means the end/last coordinate of the last array in the output
             if intervals[i][0] <= output[-1][1]: 

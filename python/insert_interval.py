@@ -22,16 +22,26 @@ from typing import List
 
 
 class Solution:
-    def insert(
-        self, intervals: List[List[int]], newInterval: List[int]
-    ) -> List[List[int]]:
+    def insert(self, intervals, newInterval):
+        intervals.append(newInterval)
+
+        # from here same as the 56. merge intervals problem
+        intervals.sort(key=lambda x: x[0])
+        output = [intervals[0]]
+        for i in range(1, len(intervals)):
+            if intervals[i][0] <= output[-1][1]:
+                output[-1][1] = max(output[-1][1], intervals[i][1])
+            else:
+                output.append(intervals[i])
+        return output
+
+    # solution 2
+    def _insert(self, intervals, newInterval):
         # there are three cases where:
         # new interval is in the range of an existing interval
         # new interval is in the range before the others
         # new interval is in the range after the others
-
         result = []
-
         for interval in intervals:
             # the new interval is after the range of other interval,
             # so we can leave the current interval baecause the new one does not overlap with it
@@ -40,7 +50,6 @@ class Solution:
 
             # the new interval's range is before the other,
             # so we can add the new interval and update it to the current one
-
             elif newInterval[1] < interval[0]:
                 result.append(newInterval)
                 newInterval = interval
