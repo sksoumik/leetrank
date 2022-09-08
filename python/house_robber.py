@@ -8,21 +8,33 @@
 #  amount of money you can rob tonight without alerting the police.
 
 
-# video explanation: https://youtu.be/73r3KWiEvyk
-
-
 from typing import List
 
 
 class Solution:
+    # time complexity: O(n)
+    # space complexity: O(1)
+    # video explanation: https://youtu.be/1NTYeyxiFPc
+    def rob(self, nums):
+
+        for i in range(1, len(nums)):
+            if i == 1:
+                nums[i] = max(nums[i], nums[i - 1])
+            else:
+                nums[i] = max(nums[i - 1], nums[i] + nums[i - 2])
+
+        return nums[-1]
+
+    # Time complexity: O(n)
+    # Space complexity: O(1)
+    # dynamic programming
     def rob(self, nums: List[int]) -> int:
         """
         "rob1" is the maximum amount of money that can be robbed from the first i-1 houses
+               store the last maximum amount of money
         "rob2" is the maximum amount of money that can be robbed from the first i houses
+            store the current maximum amount of money
 
-        :param nums: the list of houses
-        :type nums: List[int]
-        :return: The maximum amount of money that can be robbed from the houses.
         """
         rob1, rob2 = 0, 0
         for num in nums:

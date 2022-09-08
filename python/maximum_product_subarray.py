@@ -18,31 +18,33 @@ from typing import List
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
         """
-        We keep track of the max and min product of the subarray that ends at the current number.
-        The max product is either the current number itself or the max by far times the current number.
-        The min product is either the current number itself or the min by far times the current number.
-        We update the max and min product of the subarray that ends at the current number before moving on
-        to the next number.
+        You have three choices to make at any position in array.
 
-        The overall max product is the max we have seen so far
-
-        :param nums: the list of numbers
-        :type nums: List[int]
-        :return: The max product of the subarray
-
-        [2  3  -2  4]
-        max = 2, 2*3, 2*3 = 6 | -2, 6*(-2), 2*(-2)
-        min = 2, 2*3, 2*3 = 2 | 
-        global = 6 
-
+        1. You can get maximum product by multiplying the current element with
+           maximum product calculated so far. (might work when current
+           element is positive).
+        
+        2. You can get maximum product by multiplying the current element with
+           minimum product calculated so far. (might work when current
+           element is negative).
+        
+        3. Current element might be a starting position for maximum product sub
+           array
         """
+        max_product = nums[0]
+        min_product = nums[0]
+        result = nums[0]
 
-        current_max_product = current_min_product = global_max_product = nums[0]
+        for i in range(1, len(nums)):
+           positive_product = max(nums[i], max_product * nums[i], min_product * nums[i])
+           negative_product = min(nums[i], max_product * nums[i], min_product * nums[i])
+           max_product, min_product = positive_product, negative_product
+           result = max(result, max_product)
+        return result
 
-        for num in nums[1:]:
-            # max product of the subarray that ends at the current number
-            current_max_product, current_min_product = max(num, current_max_product * num, current_min_product * num),  \
-                                                       min(num, current_max_product * num, current_min_product * num)
-            global_max_product = max(global_max_product, current_max_product)
 
-        return global_max_product
+
+if __name__ == "__main__":
+    nums = [2,3,-2,4]
+    sol = Solution()
+    print(sol.maxProduct(nums))
