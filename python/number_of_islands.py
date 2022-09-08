@@ -9,6 +9,7 @@ from typing import List
 
 
 class Solution:
+    # video explanation: https://youtu.be/ZixJexAaOAk?t=474
     def numIslands(self, grid: List[List[str]]) -> int:
 
         # number of rows
