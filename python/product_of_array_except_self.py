@@ -20,6 +20,7 @@
 # Input: nums = [-1,1,0,-3,3]
 # Output: [0,0,9,0,0]
 
+from turtle import left
 from typing import List
 
 
@@ -49,11 +50,35 @@ class Solution:
             postfix *= nums[i]
         
         return result
+    # time O(n), space O(n)
+    # video explanation: https://youtu.be/eQ3eEOh0nSk
+    def _productExceptSelf(self, nums: List[int]) -> List[int]:
+        left = []
+        product = 1
+        for num in nums:
+            left.append(product)
+            product *= num
+
+        right = []
+        product = 1
+        for num in reversed(nums):
+            right.append(product)
+            product *= num
+
+        right = list(reversed(right))
+
+        result = []
+        for i in range(len(nums)):
+            result.append(left[i] * right[i])
+
+        return result
+
 
 
 if __name__ == "__main__":
     nums = [1,2,3,4]
     sol = Solution()
     print(sol.productExceptSelf(nums))
+    print(sol._productExceptSelf(nums))
 
         

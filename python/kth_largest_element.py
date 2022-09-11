@@ -20,8 +20,8 @@ import random
 class Solution:
     # naive solution
     def _findKthLargest(self, nums: List[int], k: int) -> int:
-        nums.sort()  # [1, 2, 2, 3, 3, 4, 5, 5, 6]
-        return nums[-k]  # read from backward
+        nums.sort(reverse=True)  # [6, 5, 5, 4, 3, 3, 2, 1]
+        return nums[k]  # read from backward
 
     # use quick select algorithm for time complexity O(n) on average
     def findKthLargest(self, nums: List[int], k: int) -> int:

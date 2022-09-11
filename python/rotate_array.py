@@ -42,8 +42,8 @@ class Solution:
     def reverse(self, nums: List[int], start: int, end: int) -> None:
         while start < end:
             nums[start], nums[end] = nums[end], nums[start]
-            # start += 1
-            # end -= 1
+            start += 1
+            end -= 1
 
 
 
@@ -54,12 +54,12 @@ if __name__ == "__main__":
     Solution().rotate(nums, k)
     print(nums)
     nums = [1,2,3,4,5,6,7]
-    k = 0
+    k = 9
     Solution().rotate(nums, k)
     print(nums)
 
     nums = [1,2,3,4,5,6,7]
-    k = 3
+    k = 9
     Solution().rotate2(nums, k)
     print(nums)
     
