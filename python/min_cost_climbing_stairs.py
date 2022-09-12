@@ -19,6 +19,7 @@ from typing import List
 
 
 class Solution:
+    # time complexity: O(n), space complexity: O(1)
     def minCostClimbingStairs(self, cost: List[int]) -> int:
         # [1,100, 1, 1, 1, 100, 1, 1, 100, 1]
         # start calculating from index 2, because we need 2 previous steps to calculate the current step
