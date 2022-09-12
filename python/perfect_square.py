@@ -54,7 +54,7 @@ class Solution:
         return len(min_length_array)
 
     
-       # dynamic programming
+    # dynamic programming
     # time complexity: O(n * sqrt(n))
     def numSquaresDP(self, n): 
         dp = [n] * (n + 1)
