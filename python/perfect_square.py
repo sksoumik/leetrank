@@ -57,7 +57,10 @@ class Solution:
     # dynamic programming
     # time complexity: O(n * sqrt(n))
     def numSquaresDP(self, n): 
+        # we will store the results of the subproblems in the dp array
+        # size is going to be 0 to n so, n+1
         dp = [n] * (n + 1)
+        # base case, target value is 0, we need to return 0
         dp[0] = 0
 
         for target in range(1, n + 1):
