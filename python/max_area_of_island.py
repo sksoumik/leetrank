@@ -32,7 +32,7 @@ class Solution:
         if i >= rows or i < 0 or j >= cols or j < 0 or grid[i][j] == 0:
             return 0
 
-        # Use # that modifies the input to ensure that the count isn't incremented where we could accidentally
+        # Use 0 that modifies the input to ensure that the count isn't incremented where we could accidentally
         # traverse the same '1' cell multiple times and get into an infinite loop within an island
         # it's basically a implicit way of marking the visited square/nodes instead of putting the
         # visited nodes in an visited array
