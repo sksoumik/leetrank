@@ -53,7 +53,7 @@ class Solution:
             # if the left side is sorted | left rotated
             if nums[left] <= nums[mid]:
                 # if the target is in the left side
-                if nums[left] <= target < nums[mid]:
+                if nums[left] <= target <= nums[mid]:
                     right = mid - 1
                 # if the target is in the right side
                 else:
@@ -61,7 +61,7 @@ class Solution:
             # if the right side is sorted
             else:
                 # if the target is in the right side
-                if nums[mid] < target <= nums[right]:
+                if nums[mid] <= target <= nums[right]:
                     left = mid + 1
                 # if the target is in the left side
                 else:
