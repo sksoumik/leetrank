@@ -11,6 +11,7 @@ from typing import List
 
 
 class Solution:
+    # video explanation: https://youtu.be/ZixJexAaOAk?t=474
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
         # number of rows
         rows = len(grid)

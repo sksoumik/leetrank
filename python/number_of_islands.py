@@ -28,14 +28,14 @@ class Solution:
 
     def dfs(self, i, j, rows, cols, grid):
         # This is checking if the current index is out of bounds or if the current index is not a 1.
-        if i >= rows or i < 0 or j >= cols or j < 0 or grid[i][j] != "1":
-            return
+        if i >= rows or i < 0 or j >= cols or j < 0 or grid[i][j] == "0":
+            return 0
 
         # Use # that modifies the input to ensure that the count isn't incremented where we could accidentally
         # traverse the same '1' cell multiple times and get into an infinite loop within an island
         # it's basically a implicit way of marking the visited square/nodes instead of putting the
         # visited nodes in an visited array
-        grid[i][j] = "#"
+        grid[i][j] = "0"
 
         # top
         self.dfs(i, j + 1, rows, cols, grid)
