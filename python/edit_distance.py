@@ -24,6 +24,7 @@ from functools import lru_cache
 class Solution:
     # recursive approach
     # time complexity: O(3^n)
+    # space complexity: O(n)
     # video explanation: https://youtu.be/We3YDTzNXEk
     @lru_cache(maxsize=None)
     def minDistance(self, word1: str, word2: str) -> int:
