@@ -4,8 +4,6 @@ Solutions can be found in the following directories:
 
 > [javascript/](https://github.com/sksoumik/leetrank/tree/main/javascript)
 
-## Top resources to follow for coding interviews
-
 ##### DSA
 
 - [Best practice questions](https://www.techinterviewhandbook.org/best-practice-questions/)
