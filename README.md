@@ -1,11 +1,10 @@
-Leetocde solutions can be found in the following directories:
-
-> [python/](https://github.com/sksoumik/leetrank/tree/main/python) <br/>
-
-> [javascript/](https://github.com/sksoumik/leetrank/tree/main/javascript)
-
 Previous repo I used to maintain for problem solving -
 [sksoumik/python-ps](https://github.com/sksoumik/python-ps)
+
+Leetocde solutions can be found in the following directories:
+
+- [python/](https://github.com/sksoumik/leetrank/tree/main/python)
+- [javascript/](https://github.com/sksoumik/leetrank/tree/main/javascript)
 
 ##### DSA
 
