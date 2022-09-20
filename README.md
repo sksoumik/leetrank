@@ -4,6 +4,9 @@ Leetocde solutions can be found in the following directories:
 
 > [javascript/](https://github.com/sksoumik/leetrank/tree/main/javascript)
 
+Previous repo I used to maintain for problem solving -
+[sksoumik/python-ps](https://github.com/sksoumik/python-ps)
+
 ##### DSA
 
 - [Best practice questions](https://www.techinterviewhandbook.org/best-practice-questions/)
