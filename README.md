@@ -1,4 +1,4 @@
-Solutions can be found in the following directories:
+Leetocde solutions can be found in the following directories:
 
 > [python/](https://github.com/sksoumik/leetrank/tree/main/python) <br/>
 
