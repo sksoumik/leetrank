@@ -60,23 +60,23 @@ class Solution:
         triplets = []
 
         for i in range(0, len(nums) - 2):
-            p1, p2 = i + 1, len(nums) - 1
-            while p1 < p2:
-                three_sum = nums[i] + nums[p1] + nums[p2]
+            left, right = i + 1, len(nums) - 1
+            while left < right:
+                three_sum = nums[i] + nums[left] + nums[right]
                 if three_sum == 0:
-                    triplets.append(tuple(sorted([nums[i], nums[p1], nums[p2]])))
-                    p1 += 1
-                    p2 -= 1
+                    triplets.append(
+                        (nums[i], nums[left], nums[right])
+                    )  # add as tuple, because set(List[List[]]) is not supported
+                    left += 1
+                    right -= 1
                 elif three_sum < 0:
-                    p1 += 1
+                    left += 1
                 else:
-                    p2 -= 1
+                    right -= 1
 
         return list(set(triplets))
 
 
 if __name__ == "__main__":
     sol = Solution()
-    print(sol.threeSum_2([-1, 0, 1, 2, -1, -4]))
-    print(sol.threeSum([0, 1, 1]))
-    print(sol.threeSum([0, 0, 0]))
+    print(sol.threeSum_3([-1, 0, 1, 2, -1, -4]))

@@ -30,11 +30,11 @@ class Solution:
 
     
 
-    def check_palindrome(self, s, low, high):
-        while low >= 0 and high < len(s) and s[low] == s[high]:
-            low -= 1
-            high += 1
-        return s[low + 1:high]
+    def check_palindrome(self, s, left, right):
+        while left >= 0 and right < len(s) and s[left] == s[right]:
+            left -= 1
+            right += 1
+        return s[left +1 :right] # +1 with left because we want to exclude the leftmost character
         
 
 
@@ -46,23 +46,32 @@ class Solution:
             return s
         # make all possible combinations of substring
         # all_substrings = [''.join(l) for i in range(len(s)) for l in combinations(s, i+1)]
+        # all possible combinations of substring
         all_substrings = []
         for i in range(len(s)):
-            for j in combinations(s, i+1):
-                all_substrings.append(''.join(j))
-
-        palindromes = [i for i in all_substrings if i == i[::-1]]
+            for j in range(i, len(s)):
+                all_substrings.append(s[i : j + 1])
+        
+        # print(all_substrings)
+        # check if each substring is a palindrome
         # return the longest palindrome
-        longest_palindrome = max(palindromes, key=len)
-        return longest_palindrome
+        palindromic_substrings = []
+        for substring in all_substrings:
+            if substring == substring[::-1]:
+                palindromic_substrings.append(substring)
+        
+
+        max_len_plalindrome = max(palindromic_substrings, key=len)
+        return max_len_plalindrome
+            
 
 
 if __name__ == "__main__":
     s = "babad"
     sol = Solution()
     print(sol.longestPalindrome(s))
-    s = "cbbd"
-    print(sol.longestPalindrome(s))
+    s = "babad"
+    print(sol.longestPalindrome_2(s))
 
 
         

@@ -46,6 +46,7 @@ class Solution:
 
             # update the max length
             max_len = max(max_len, len(char_set))
+
         return max_len
 
     # brute force approach: time O(n^2)
