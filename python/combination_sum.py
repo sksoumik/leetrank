@@ -33,11 +33,12 @@ from typing import List
 # We start with an empty list, and we add to it as we go
 class Solution:
     # dfs:
+    # time complexity: O(2^n), where n is the length of candidates
+    # O(2^N) time because for each recursive call we are doing
+    # 2 * (n - 1) operations due to constantly shrinking down the input list in each recursive call.
+    # space complexity: O(n)
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
-        candidates.sort()
-
         answer = []
-
         # try out each possible cases
         # maintain idx for avoiding repeated combinations
         def dfs(current_combination, current_sum, idx):
@@ -71,10 +72,12 @@ class Solution:
                         dp[j].append(k + [i])
 
         return dp[target]
-    
+
     # using cache for dynamic programming
     @lru_cache(None)
-    def combinationSum_DP_cache(self, candidates: List[int], target: int) -> List[List[int]]:
+    def combinationSum_DP_cache(
+        self, candidates: List[int], target: int
+    ) -> List[List[int]]:
         result = []
 
         def dfs(current_combination, current_sum, idx):
@@ -92,7 +95,6 @@ class Solution:
 
         dfs([], 0, 0)
         return result
-
 
 
 if __name__ == "__main__":

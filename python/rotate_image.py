@@ -39,34 +39,16 @@ class Solution:
         print(matrix)
 
     # second solution pythonic way
-    def rotate(self, matrix: List[List[int]]) -> None:
+    def _rotate(self, matrix: List[List[int]]) -> None:
         # rotate the matrix by 90 degrees clockwise
         matrix[:] = zip(*matrix[::-1])
 
-    def rotate_counterclockwise(self, matrix: List[List[int]]) -> None:
-
-        new_matrix = [
-            [matrix[j][i] for j in range(len(matrix))]
-            for i in range(len(matrix[0]) - 1, -1, -1)
-        ]
-
-        print(new_matrix)
-
-    # another approach using numpy
-    def rotate_numpy(self, matrix: List[List[int]]) -> None:
-        """
-        :param matrix: the matrix to be rotated
-        :type matrix: List[List[int]]
-        """
-        matrix = np.array(matrix)
-        print("Original matrix:")
-        print(matrix)
-        # clockwise rotate the matrix
-        print("\nclockwise rotate")
-        print(np.rot90(matrix, k=1, axes=(1, 0)))
-        # counterclockwise rotate the matrix
-        print("\ncounterclockwise rotate:")
-        print(np.rot90(matrix, k=1, axes=(0, 1)))
+    # rotate the matrix by 90 degrees counterclockwise
+    def _rotate(matrix):
+        for i in range(len(matrix) - 1, -1, -1):
+            for j in range(i):
+                matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+        matrix.reverse()
 
 
 if __name__ == "__main__":

@@ -16,19 +16,18 @@ class Solution:
         # rotate the matrix 90 degrees anticlockwise
         # extract first row again
 
-        # we can do this using recursive approach
-        # we can do this using iterative approach
-
         # recursive approach
-        return matrix and list(matrix.pop(0)) + self.spiralOrder([*zip(*matrix)][::-1])
+        # return matrix and list(matrix.pop(0)) + self.spiralOrder([*zip(*matrix)][::-1])
 
         # iterative approach
-        # result = []
+        result = []
 
-        # while matrix:
-        #     result.extend(matrix.pop(0))
-        #     matrix = [*zip(*matrix)][::-1]
-        # return result
+        while matrix:
+            # extract first row
+            result.extend(matrix.pop(0))
+            # rotate the matrix 90 degrees anticlockwise
+            matrix = [*zip(*matrix)][::-1]
+        return result
 
 
 if __name__ == "__main__":
