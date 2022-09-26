@@ -27,6 +27,7 @@ def print_post_order(root):
 
 
 def print_level_order(root):
+    # In queue, we add values to the end and remove from the beginning
     if root:  # if root is not None
 
         # create an empty queue

@@ -17,26 +17,27 @@
 # Output: false
 
 from typing import List
+from functools import lru_cache
 
 
 class Solution:
-    # time limit exceeded
-    def _wordBreak(self, s: str, wordDict: List[str]) -> bool:
-        # recursive solution
 
-        # if the string is empty, return True
-        if not s:
-            return True
-
-        for i in range(len(s)):
-            if s[: i + 1] in wordDict:
-                if self._wordBreak(s[i + 1 :], wordDict):
+    # time complexity:
+    def wordBreak(self, s: str, wordDict: List[str]) -> bool:
+        @lru_cache(None)
+        def helper(i):
+            if i == len(s):
+                return True
+            for j in range(i + 1, len(s) + 1):
+                if s[i:j] in wordDict and helper(j):
                     return True
+            return False
 
-        return False
+        return helper(0)
 
     # dynamic programming solution
-    def wordBreak(self, s: str, wordDict: List[str]) -> bool:
+    # top down solution
+    def _wordBreak(self, s: str, wordDict: List[str]) -> bool:
         if not s:
             return True
 

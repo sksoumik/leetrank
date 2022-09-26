@@ -13,6 +13,7 @@ from typing import List
 
 class Solution:
     # O(n) time
+    # space: O(1)
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
         """
         We start with two pointers, one at the beginning of the array and one at the end.
@@ -46,6 +47,7 @@ class Solution:
         return []
 
     # O(n): same as the two sum except it's 1-indexed
+    # space: O(n)
     def twoSum_2(self, numbers: List[int], target: int) -> List[int]:
         hash_table = {}
         

@@ -1,10 +1,9 @@
 # leetcode premium problem
 # https://leetcode.com/problems/two-sum-less-than-k/
 
-# Given some array of positive integers A, 
-# find the length of the longest subarray such that 
-# the sum of all its values is less than or equal to some positive integer K.
-# If no solution is found, return -1. 
+# Given some array of positive integers A,
+# find the pair sum of two integers in A that is less than or equal to K,
+# If no solution is found, return -1.
 
 # Example 1:
 # Input: A = [34,23,1,24,75,33,54,8], K = 60
@@ -21,20 +20,22 @@
 
 class Solution:
     def twoSumLessThanK(self, A, K):
-        max_array = -1
         A.sort()
+
+        pair_sum = -1
         left, right = 0, len(A) - 1
         while left < right:
             if A[left] + A[right] <= K:
-                max_array = max(max_array, A[right] + A[left])
+                pair_sum = max(pair_sum, A[right] + A[left])
                 left += 1
             else:
+                # pair sum is greater than K
                 right -= 1
-        return max_array
+        return pair_sum
 
 
 if __name__ == "__main__":
     sol = Solution()
-    A =  [34, 23, 1, 24, 75, 33, 54, 8]
+    A = [34, 23, 1, 24, 75, 33, 54, 8]
     K = 60
     print(sol.twoSumLessThanK(A, K))

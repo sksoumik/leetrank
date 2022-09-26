@@ -29,6 +29,22 @@ class Solution:
             matrix = [*zip(*matrix)][::-1]
         return result
 
+    def _spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        result = []
+
+        while matrix:
+            # extract first row
+            result.extend(matrix.pop(0))
+            # rotate the matrix 90 degrees clockwise
+            for i in range(len(matrix)):
+                for j in range(i):
+                    matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+            matrix.reverse()
+
+        return result
+
+
+
 
 if __name__ == "__main__":
     sol = Solution()

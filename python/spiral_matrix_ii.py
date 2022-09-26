@@ -13,11 +13,16 @@ class Solution:
         # add the numbers in reverse order until we added the number 1. 
         # Always rotate the matrix clockwise and add a top row:
         
-        matrix, low = [[n*n]], n*n 
+        matrix = [[n*n]]
+        low = n*n 
         while low > 1:
-            low, high = low - len(matrix), low
+            low= low - len(matrix)
+            high = low
             matrix = [[i for i in range(low, high)]] + [list(j) for j in zip(*matrix[::-1])]
-        return matrix 
+        return matrix
+            
+
+
 
 
 if __name__ == "__main__":
