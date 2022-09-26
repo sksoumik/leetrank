@@ -12,9 +12,9 @@
 # Output: 7
 # Explanation: The maximum width exists in the fourth level with length 7 (6,null,null,null,null,null,7).
 
+# vid: https://youtu.be/673DsIXOkWg
+
 from typing import Optional
-
-
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -37,9 +37,11 @@ class Solution:
             # The `queue` is a list of tuples, where each tuple is a node and its index. The index is
             # the position of the node in the tree. The `max_width` is the maximum difference between
             # the indices of the leftmost and rightmost nodes in the queue.
+            # rightmost index - leftmost index + 1
             max_width = max(max_width, queue[-1][1] - queue[0][1] + 1)
             for _ in range(len(queue)):
                 # we remove the first element from the queue
+                # it will return a tuple (node, index)
                 node, index = queue.pop(0)
                 # we add the left child to the queue and we update its index
                 if node.left:
