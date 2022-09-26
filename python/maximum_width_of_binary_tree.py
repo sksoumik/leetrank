@@ -38,7 +38,9 @@ class Solution:
             # the position of the node in the tree. The `max_width` is the maximum difference between
             # the indices of the leftmost and rightmost nodes in the queue.
             # rightmost index - leftmost index + 1
-            max_width = max(max_width, queue[-1][1] - queue[0][1] + 1)
+            max_width = max(max_width, queue[-1][1] - queue[0][1] + 1)  
+            # [(root, 0)]  -1 is the rightmost node, 0 is the leftmost node
+            # and index is placed in the tuple as the second element, so 1
             for _ in range(len(queue)):
                 # we remove the first element from the queue
                 # it will return a tuple (node, index)
