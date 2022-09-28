@@ -25,12 +25,15 @@ class Solution:
         # keys: course number
         # values: list of prerequisites
         adj_map = {i: [] for i in range(numCourses)}
+        # {0: [], 1: []}
 
         # add the prerequisites to the adjacency list
         # c: course, p: prerequisites
         for c, p in prerequisites:
             # add course as key and pre_req as value
             adj_map[c].append(p)
+
+        # adj_map = {0: [1], 1: [0]}
 
         # track the visited nodes to check if there is a cycle
         visited = set()
@@ -63,6 +66,8 @@ class Solution:
         # check if there is a cycle in the graph
         for v in range(numCourses):
             if hasCycle(v, []):
+                # if hasCycle returns true, there is a cycle,
+                # so we cannot finish all courses
                 return False
 
         return True
