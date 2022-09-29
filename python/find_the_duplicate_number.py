@@ -10,6 +10,7 @@ from typing import List
 
 
 class Solution:
+    # time complexity: O(n), space complexity O(n)
     def findDuplicate(self, nums: List[int]) -> int:
         """
         We iterate through the list, and if we see an element that we've seen before, we return it
@@ -27,6 +28,34 @@ class Solution:
                 seen.add(element)
 
         return -1
+
+    # time complexity: O(nlogn), space complexity O(1)
+    def findDuplicate2(self, nums):
+        nums.sort()
+        for i in range(len(nums) - 1):
+            if nums[i] == nums[i + 1]:
+                return nums[i]
+        return -1
+
+    # floyed cycle detection algorithm
+    # vid: https://youtu.be/wjYnzkAhcNk
+    # time complexity: O(n), space complexity O(1)
+    def findDuplicate3(self, nums: List[int]) -> int:
+        slow = nums[0]
+        fast = nums[0]
+
+        while True:
+            slow = nums[slow]
+            fast = nums[nums[fast]]
+            if slow == fast:
+                break
+
+        slow = nums[0]
+        while slow != fast:
+            slow = nums[slow]
+            fast = nums[fast]
+
+        return slow
 
 
 if __name__ == "__main__":
