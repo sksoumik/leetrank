@@ -37,7 +37,7 @@ class Solution:
                 return nums[i]
         return -1
 
-    # floyed cycle detection algorithm
+    # floyd's cycle detection algorithm
     # vid: https://youtu.be/wjYnzkAhcNk
     # time complexity: O(n), space complexity O(1)
     def findDuplicate3(self, nums: List[int]) -> int:
@@ -60,4 +60,4 @@ class Solution:
 
 if __name__ == "__main__":
     nums = [1, 3, 4, 2, 2]
-    print(Solution().findDuplicate(nums))
+    print(Solution().findDuplicate3(nums))  # 2
