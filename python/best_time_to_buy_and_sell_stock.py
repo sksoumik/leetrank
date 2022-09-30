@@ -1,6 +1,7 @@
 # https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 
 # You are given an array prices where prices[i] is the price of a given stock on the ith day.
+
 # You want to maximize your profit by choosing a single day to buy one stock and choosing
 # a different day in the future to sell that stock.
 # Return the maximum profit you can achieve from this transaction. If you cannot
@@ -12,41 +13,27 @@
 # Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
 
 from typing import List
+from functools import lru_cache
 
+# vid: https://youtu.be/ymE9E-cDYOI
 
 class Solution:
-    # solution 1: O(n) time
     def maxProfit(self, prices: List[int]) -> int:
-        """
-        We keep track of the minimum price we've seen so far and the maximum profit we've seen so far.
-        We update the minimum price and maximum profit as we iterate through the array.
+        @lru_cache(None)
+        def recursion(time, stock, count):
 
-        :param prices: the list of prices
-        :return: The maximum profit that could be made by buying and selling a single share at the given
-        prices.
-        """
-        max_profit = 0
-        min_price_seen_so_far = float("inf") # float('inf') denotes an infinitly large number
+            if count >= k: return 0
+            if time >= len(prices): return 0
 
-        for current_price in prices:
-            min_price_seen_so_far = min(min_price_seen_so_far, current_price)
-            profit_if_sold_now = current_price - min_price_seen_so_far
-            max_profit = max(max_profit, profit_if_sold_now)
+            buy = -prices[time] + recursion(time + 1, stock + 1, count) if stock == 0 else float("-inf")
+            sell = prices[time] + recursion(time + 1, stock - 1, count+1) if stock == 1 else float("-inf")
+            hold = 0 + recursion(time + 1, stock, count)
 
-        return max_profit
+            return max(buy, sell, hold)
 
-    # solution 2: dynamic programming
-    def maxProfit_2(self, prices: List[int]) -> int:
-        dp = [0] * len(prices)
-        min_price = prices[0]
+        k = 1    
+        return recursion(0, 0, 0)
 
-        for i in range(1, len(prices)):
-            min_price = min(min_price, prices[i])
-            dp[i] = max(dp[i - 1], prices[i] - min_price)
-
-        return dp[-1]
-
-        
 
 
 if __name__ == "__main__":
