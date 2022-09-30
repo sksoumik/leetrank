@@ -35,40 +35,18 @@ class Solution:
 
         return max_profit
 
-    # solution 2:
+    # solution 2: dynamic programming
     def maxProfit_2(self, prices: List[int]) -> int:
-        """
-        We start with a left pointer at the beginning of the array and a right pointer at the second
-        element. We then check to see if the element to the right is greater than the element to the
-        left. If it is, we calculate the current profit and update our max profit if the current profit
-        is greater. If the element to the right is not greater, we move the left pointer to the right by
-        one. We then increment the right pointer by one. We repeat this process until the right pointer
-        is at the end of the array
+        dp = [0] * len(prices)
+        min_price = prices[0]
 
-        :param prices: List[int] -> This is the list of prices that we are given
-        :type prices: List[int]
-        :return: The max profit that can be made from buying and selling a stock
-        """
-        max_profit = 0
+        for i in range(1, len(prices)):
+            min_price = min(min_price, prices[i])
+            dp[i] = max(dp[i - 1], prices[i] - min_price)
 
-        # left pointer, idx of buying the stock
-        buy = 0
+        return dp[-1]
 
-        # right pointer, index of selling the stock
-        sell = 1
-
-        while sell < len(prices):
-            current_profit = prices[sell] - prices[buy]
-
-            # if the buy < sell: then update max profit
-            if prices[buy] < prices[sell]:
-                max_profit = max(current_profit, max_profit)
-            else:
-                # update pointers
-                buy = sell
-            sell += 1
-
-        return max_profit
+        
 
 
 if __name__ == "__main__":
