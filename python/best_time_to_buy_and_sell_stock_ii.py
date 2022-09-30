@@ -24,9 +24,7 @@ class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         @lru_cache(None)
         def recursion(time, stock):
-
-            if time >= len(prices):
-                return 0
+            if time >= len(prices): return 0
 
             buy = -prices[time] + recursion(time + 1, stock + 1) if stock == 0 else float("-inf")
             sell = prices[time] + recursion(time + 1, stock - 1) if stock == 1 else float("-inf")
