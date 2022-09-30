@@ -21,6 +21,8 @@ from functools import lru_cache
 # vid: https://youtu.be/ymE9E-cDYOI
 
 class Solution:
+    # time complexity: O(n)
+    # space complexity: O(1)
     def maxProfit(self, prices: List[int]) -> int:
         @lru_cache(None)
         def recursion(time, stock):
