@@ -18,13 +18,13 @@ class Solution:
         # number of cols
         cols = len(grid[0])
 
-        count = 0
+        max_area = 0
 
         for i in range(rows):
             for j in range(cols):
                 if grid[i][j] == 1:
-                    count = max(count, self.dfs(i, j, rows, cols, grid))
-        return count
+                    max_area = max(max_area, self.dfs(i, j, rows, cols, grid))
+        return max_area
     
 
     def dfs(self, i, j, rows, cols, grid):
