@@ -22,7 +22,7 @@ class Solution:
         @lru_cache(None)
         def recursion(time, stock, count):
 
-            if count >= k: return 0
+            if count > k: return 0
             if time >= len(prices): return 0
 
             buy = -prices[time] + recursion(time + 1, stock + 1, count) if stock == 0 else float("-inf")

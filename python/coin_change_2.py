@@ -28,7 +28,32 @@ from functools import lru_cache
 
 
 class Solution:
+    # time complexity: O(n * m), where n is the amount and m is the number of coins
+    # space complexity: O(n * m)
     def change(self, amount: int, coins: List[int]) -> int:
+        result = []
+
+        def dfs(current_combination, current_sum, idx):
+            if current_sum == amount:
+                result.append(current_combination)
+                return
+
+            if current_sum > amount:
+                return
+
+            for i in range(idx, len(coins)):
+                dfs(current_combination + [coins[i]], current_sum + coins[i], i)
+
+        dfs([], 0, 0)
+
+        if not result:
+            return 0
+
+        return len(result)
+    
+
+
+    def change2(self, amount: int, coins: List[int]) -> int:
         
         @lru_cache(maxsize=None)
         def _change(amount, idx):
