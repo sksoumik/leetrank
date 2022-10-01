@@ -38,11 +38,11 @@ class Solution:
             sums += num
             if sums - k in d:
                 count += d[sums - k]
+            # insert running sum into dictionary as key
+            # and frequency 1 as value
             d[sums] = d.get(sums, 0) + 1
 
         return count
-
-
 
 
 if __name__ == "__main__":
