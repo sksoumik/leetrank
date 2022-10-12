@@ -27,7 +27,7 @@ class Solution:
 
         @lru_cache(None)
         def recursion(i, j, k):
-            # base case
+            # The base case.
             if i == L1 and j == L2 and k == L3:
                 return True
 
@@ -39,6 +39,7 @@ class Solution:
             if j < L2 and s2[j] == s3[k]:
                 r2 = recursion(i, j + 1, k + 1)
 
+            # Returning True if either r1 or r2 is True.
             return r1 or r2
 
         return recursion(0, 0, 0)
