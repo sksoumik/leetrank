@@ -12,10 +12,13 @@
 # Input: digits = "23"
 # Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
 
+# vid: https://youtu.be/0snEunUacZY
+
 from typing import List
 
 
 class Solution:
+    # time complexity: O(n * 4^n) where n is the length of digits
     def letterCombinations(self, digits: str) -> List[str]:
 
         phone_map = {
