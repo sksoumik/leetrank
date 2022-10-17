@@ -20,6 +20,12 @@ class Solution:
             if i not in exist:
                 return i
 
+    # second solution
+    def _firstMissingPositive(self, nums: List[int]) -> int:
+        for i in range(1, len(nums) + 2):  # +2 because we have one missing number
+            if i not in nums:
+                return i
+
 
 if __name__ == "__main__":
     nums = [1, 2, 0]
