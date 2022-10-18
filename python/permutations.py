@@ -28,6 +28,8 @@ class Solution:
             if i not in visited:
                 visited.add(i)
                 self.backtrack(result, visited, subset + [nums[i]], nums)
+                # remove the current number from visited in order
+                # to allow for the creation of new permutations
                 visited.remove(i)
 
     # using library
