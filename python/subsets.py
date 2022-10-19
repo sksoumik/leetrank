@@ -18,11 +18,16 @@ class Solution:
         return result
 
     def backtrack(self, result, subset, nums, start):
+        # at first iteration subset is empty
+        # so, it will add empty [] to result
         result.append(subset)
+        # start from 0 index
         for i in range(start, len(nums)):
             self.backtrack(result, subset + [nums[i]], nums, i + 1)
 
 
 if __name__ == "__main__":
     nums = [1, 2, 3]
-    print(Solution().subsets(nums))
+    print(
+        Solution().subsets(nums)
+    )  # [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
