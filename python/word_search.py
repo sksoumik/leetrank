@@ -14,7 +14,8 @@
 # Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCB"
 # Output: false
 
-from importlib.resources import path
+# vid: https://youtu.be/pfiQ_PS1g8E
+
 from typing import List
 
 
@@ -26,7 +27,6 @@ class Solution:
         cols = len(board[0])
         path = set()
 
-        # @lru_cache(None)
         def dfs(r, c, w):
             if w == len(word):
                 return True
@@ -42,7 +42,7 @@ class Solution:
 
             path.add((r, c))
 
-            res = (
+            result = (
                 dfs(r + 1, c, w + 1)
                 or dfs(r - 1, c, w + 1)
                 or dfs(r, c + 1, w + 1)
@@ -50,7 +50,7 @@ class Solution:
             )
 
             path.remove((r, c))
-            return res
+            return result
 
         for r in range(rows):
             for c in range(cols):
