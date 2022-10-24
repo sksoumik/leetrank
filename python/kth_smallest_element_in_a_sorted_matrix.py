@@ -14,6 +14,7 @@
 # and the 8th smallest number is 13
 
 from typing import List
+import heapq
 
 
 class Solution:
@@ -27,6 +28,24 @@ class Solution:
         flat_matrix.sort()
         # return the kth smallest element
         return flat_matrix[k - 1]
+    
+    # heapq
+    # time complexity: O(n^2)
+    # space complexity: O(n^2)
+    def kthSmallest(self, matrix: List[List[int]], k: int) -> int:
+        # create a heap
+        heap = []
+        # iterate over the matrix
+        for row in matrix:
+            for element in row:
+                # push the element into the heap
+                heapq.heappush(heap, element)
+        # pop the kth smallest element
+        for _ in range(k - 1):
+            heapq.heappop(heap)
+        # return the kth smallest element
+        return heapq.heappop(heap)
+    
 
 
 if __name__ == "__main__":
