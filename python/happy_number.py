@@ -23,6 +23,11 @@
 
 class Solution:
     def isHappy(self, n: int) -> bool:
+        """
+        The way to make number(num) into digits is
+        digits = [int(d) for d in str(num)]
+        """
+
         memory = set()
 
         while n not in memory:
