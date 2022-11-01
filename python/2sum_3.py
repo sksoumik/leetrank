@@ -40,7 +40,35 @@ class TwoSum:
 
 
 # optimized implementation using hash table
-class TwoSum:
+class TwoSum2:
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+        self.nums_map = []
+
+    def add(self, number: int) -> None:
+        """
+        Add the number to an internal data structure..
+        """
+        self.nums_map.append(number)
+
+    def find(self, value: int) -> bool:
+        """
+        Find if there exists any pair of numbers which sum is equal to the value.
+        """
+        hash_table = {}
+
+        for num in self.nums_map:
+            if value - num in hash_table:
+                return True
+            hash_table[num] = True
+
+        return False
+
+
+# optimized implementation using hash table
+class TwoSum3:
     def __init__(self):
         """
         Initialize your data structure here.
@@ -59,13 +87,20 @@ class TwoSum:
         """
         for num in self.nums_map:
             target = value - num
-            if target in self.nums_map and (target != num or self.nums_map[target] > 1):
+            if target in self.nums_map and (target != num or self.nums_map[num] > 1):
                 return True
         return False
 
 
 if __name__ == "__main__":
-    twoSum = TwoSum()
+    twoSum = TwoSum2()
+    twoSum.add(1)
+    twoSum.add(3)
+    twoSum.add(5)
+    print(twoSum.find(4))  # True
+    print(twoSum.find(7))  # False
+
+    twoSum = TwoSum3()
     twoSum.add(1)
     twoSum.add(3)
     twoSum.add(5)
