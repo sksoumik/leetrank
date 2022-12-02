@@ -135,3 +135,4 @@ gitpush.sh
 notebooks/
 *.ipynb
 notebook/
+All_Code.md
