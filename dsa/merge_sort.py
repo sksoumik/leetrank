@@ -1,41 +1,30 @@
-def mergeSort(arr):
-    """
-    We split the array into two halves, recursively sort each half, and then merge the two sorted halves
-    """
-    if len(arr) > 1:
-        mid = len(arr) // 2
-        L = arr[:mid]
-        R = arr[mid:]
+def merge_sort(arr):
+    if len(arr) <= 1:
+        return arr
 
-        mergeSort(L)
-        mergeSort(R)
+    # Divide the list into two halves
+    mid = len(arr) // 2
+    left = arr[:mid]
+    right = arr[mid:]
 
-        i = j = k = 0
+    # Recursively sort the two halves
+    left = merge_sort(left)
+    right = merge_sort(right)
 
-        while i < len(L) and j < len(R):
-            if L[i] < R[j]:
-                arr[k] = L[i]
-                i += 1
-            else:
-                arr[k] = R[j]
-                j += 1
-            k += 1
+    # Merge the sorted halves
+    return merge(left, right)
 
-        while i < len(L):
-            arr[k] = L[i]
-            i += 1
-            k += 1
+def merge(left, right):
+    result = []
+    while left and right:
+        if left[0] < right[0]:
+            result.append(left.pop(0))
+        else:
+            result.append(right.pop(0))
+    result.extend(left)
+    result.extend(right)
+    return result
 
-        while j < len(R):
-            arr[k] = R[j]
-            j += 1
-            k += 1
-
-
-if __name__ == "__main__":
-    arr = [12, 11, 13, 5, 6, 7]
-    print("Given array is")
-    print(arr)
-    mergeSort(arr)
-    print("Sorted array is")
-    print(arr)
+# Test the merge_sort function
+arr = [5, 3, 2, 1, 4]
+print(merge_sort(arr))  # Output: [1, 2, 3, 4, 5]
