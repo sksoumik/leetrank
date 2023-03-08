@@ -4,6 +4,25 @@
 # Explanation: [4,-1,2,1] has the largest sum = 6.
 
 
+# brute force
+def bf_max_subarray(nums):
+    """
+    We check for all possible subarrays and find it's sum and update the maximum sum
+    """
+    max_sum = float("-inf")
+    all_subarrays = []
+
+    for i in range(len(nums)):
+        for j in range(i, len(nums)):
+            all_subarrays.append(nums[i:j + 1])
+
+    for subarray in all_subarrays:
+        max_sum = max(max_sum, sum(subarray))
+
+    return max_sum
+
+
+
 # approach 1
 def fn_max_subarray(nums):
     """
