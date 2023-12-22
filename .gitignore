@@ -136,3 +136,5 @@ notebooks/
 *.ipynb
 notebook/
 All_Code.md
+# ignore bianry builds for rust
+binary/
