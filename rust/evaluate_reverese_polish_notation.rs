@@ -11,7 +11,7 @@
 // The division between two integers always truncates toward zero.
 // There will not be any division by zero.
 // The input represents a valid arithmetic expression in a reverse polish notation.
-// The answer and all the intermediate calculations can be represented in a 32-bit integer.  
+// The answer and all the intermediate calculations can be represented in a 32-bit integer.
 
 struct Solution;
 
@@ -41,14 +41,36 @@ impl Solution {
     }
 }
 
-
 fn main() {
     // Test cases
-    let tokens1 = vec!["2".to_string(), "1".to_string(), "+".to_string(), "3".to_string(), "*".to_string()];
-    let tokens2 = vec!["4".to_string(), "13".to_string(), "5".to_string(), "/".to_string(), "+".to_string()];
+    let tokens1 = vec![
+        "2".to_string(),
+        "1".to_string(),
+        "+".to_string(),
+        "3".to_string(),
+        "*".to_string(),
+    ];
+    let tokens2 = vec![
+        "4".to_string(),
+        "13".to_string(),
+        "5".to_string(),
+        "/".to_string(),
+        "+".to_string(),
+    ];
     let tokens3 = vec![
-        "10".to_string(), "6".to_string(), "9".to_string(), "3".to_string(), "+".to_string(), "-11".to_string(),
-        "*".to_string(), "/".to_string(), "*".to_string(), "17".to_string(), "+".to_string(), "5".to_string(), "+".to_string(),
+        "10".to_string(),
+        "6".to_string(),
+        "9".to_string(),
+        "3".to_string(),
+        "+".to_string(),
+        "-11".to_string(),
+        "*".to_string(),
+        "/".to_string(),
+        "*".to_string(),
+        "17".to_string(),
+        "+".to_string(),
+        "5".to_string(),
+        "+".to_string(),
     ];
 
     assert_eq!(Solution::eval_rpn(tokens1), 9);
@@ -57,4 +79,3 @@ fn main() {
 
     println!("All test cases passed!");
 }
-
