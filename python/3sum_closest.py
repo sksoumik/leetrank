@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/3sum-closest
 
-# Given an integer array nums of length n and an integer target, 
+# Given an integer array nums of length n and an integer target,
 # find three integers in nums such that the sum is closest to target.
 # Return the sum of the three integers.
 # You may assume that each input would have exactly one solution.
@@ -11,9 +11,7 @@
 # Explanation: The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
 
 
-from typing import List
-
-class Solution:    
+class Solution:
 
     # brute force: time complexity O(n^3)
     def _threeSumClosest(self, nums, target):
@@ -49,7 +47,7 @@ class Solution:
 
                 if abs(three_sum - target) < abs(best_3sum_closest_to_target - target):
                     best_3sum_closest_to_target = three_sum
-                
+
                 if three_sum < target:
                     p1 += 1
                 else:
@@ -59,7 +57,6 @@ class Solution:
 
 
 if __name__ == "__main__":
-    nums = [-1,2,1,-4] 
+    nums = [-1, 2, 1, -4]
     target = 1
     print(Solution().threeSumClosest(nums, target))
-        

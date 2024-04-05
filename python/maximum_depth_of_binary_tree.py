@@ -1,6 +1,7 @@
 # https://leetcode.com/problems/maximum-depth-of-binary-tree/
 # Given the root of a binary tree, return its maximum depth.
 
+
 # Definition for a binary tree node.
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -14,7 +15,7 @@ class Solution:
         """
         We return the maximum of the depth of the left subtree and the depth of the right subtree, plus
         one
-        
+
         :param root: TreeNode
         :type root: TreeNode
         :return: The maximum depth of the tree.

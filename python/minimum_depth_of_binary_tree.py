@@ -4,7 +4,7 @@
 # root node down to the nearest leaf node.
 # Note: A leaf is a node with no children.
 
-from typing import List, Optional
+from typing import Optional
 
 
 class TreeNode:

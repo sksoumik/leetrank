@@ -1,15 +1,14 @@
 # https://leetcode.com/problems/product-of-array-except-self
 
-# Given an integer array nums, return an array answer such that answer[i] is 
+# Given an integer array nums, return an array answer such that answer[i] is
 # equal to the product of all the elements of nums except nums[i].
 # The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
 
-# Constraints: 
+# Constraints:
 # You must write an algorithm that runs in O(n) time and without using the division operation.
-# Can you solve the problem in O(1) extra space complexity? 
+# Can you solve the problem in O(1) extra space complexity?
 # (The output array does not count as extra space for space complexity analysis.)
 
- 
 
 # Example 1:
 
@@ -20,7 +19,6 @@
 # Input: nums = [-1,1,0,-3,3]
 # Output: [0,0,9,0,0]
 
-from turtle import left
 from typing import List
 
 
@@ -30,7 +28,7 @@ class Solution:
     #     product = 1
     #     for num in nums:
     #         product *= num
-        
+
     #     return [product // num for num in nums]
 
     # O(n) time and O(1) space complexity; result array is not counted as extra space
@@ -43,13 +41,14 @@ class Solution:
         for i in range(len(nums)):
             result[i] = prefix
             prefix *= nums[i]
-        
+
         postfix = 1
         for i in range(len(nums) - 1, -1, -1):
             result[i] *= postfix
             postfix *= nums[i]
-        
+
         return result
+
     # time O(n), space O(n)
     # video explanation: https://youtu.be/eQ3eEOh0nSk
     def _productExceptSelf(self, nums: List[int]) -> List[int]:
@@ -74,11 +73,8 @@ class Solution:
         return result
 
 
-
 if __name__ == "__main__":
-    nums = [1,2,3,4]
+    nums = [1, 2, 3, 4]
     sol = Solution()
     print(sol.productExceptSelf(nums))
     print(sol._productExceptSelf(nums))
-
-        

@@ -9,7 +9,8 @@ def is_palindrome(x: int):
     reverse_x = str_x[::-1]
     return str_x == reverse_x
 
-#without converting to string
+
+# without converting to string
 def is_palindrome2(x: int):
     # any negative number is not a palindrome
     if x < 0:
@@ -24,7 +25,6 @@ def is_palindrome2(x: int):
         x = x // 10
 
     return reverse == original
-
 
 
 if __name__ == "__main__":

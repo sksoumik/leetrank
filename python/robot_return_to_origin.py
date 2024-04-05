@@ -28,7 +28,7 @@ class Solution:
         return cnt["U"] == cnt["D"] and cnt["L"] == cnt["R"]
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     s = Solution()
     print(s.judgeCircle("UD"))
     print(s.judgeCircle("LL"))

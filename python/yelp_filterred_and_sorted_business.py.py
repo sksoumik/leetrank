@@ -1,9 +1,6 @@
 import json
 import sys
-from typing import List
-from typing import NamedTuple
-from typing import Optional
-
+from typing import List, NamedTuple, Optional
 
 """
 Yelp Online Coding Challenge

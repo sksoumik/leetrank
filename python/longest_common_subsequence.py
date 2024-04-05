@@ -1,18 +1,17 @@
 # https://leetcode.com/problems/longest-common-subsequence
 
-# Given two strings text1 and text2, return the length of their longest common subsequence. 
+# Given two strings text1 and text2, return the length of their longest common subsequence.
 # If there is no common subsequence, return 0.
-# A subsequence of a string is a new string generated from the original string 
+# A subsequence of a string is a new string generated from the original string
 # with some characters (can be none) deleted without changing the relative order of the remaining characters.
 
 # For example, "ace" is a subsequence of "abcde".
 # A common subsequence of two strings is a subsequence that is common to both strings.
 
- 
 
 # Example 1:
-# Input: text1 = "abcde", text2 = "ace" 
-# Output: 3  
+# Input: text1 = "abcde", text2 = "ace"
+# Output: 3
 # Explanation: The longest common subsequence is "ace" and its length is 3.
 
 # Example 2:
@@ -21,6 +20,7 @@
 # Explanation: The longest common subsequence is "abc" and its length is 3.
 
 from functools import lru_cache
+
 
 class Solution:
     # recursive approach
@@ -38,12 +38,11 @@ class Solution:
 
         return lcs_helper(0, 0)
 
-
     # dynamic programming approach
     # time complexity: O(m * n)
     # space complexity: O(m * n)
     def _longestCommonSubsequence(self, text1: str, text2: str) -> int:
-       # length of text1 and text2
+        # length of text1 and text2
         m = len(text1)
         n = len(text2)
 
@@ -66,4 +65,3 @@ if __name__ == "__main__":
     sol = Solution()
     print(sol.longestCommonSubsequence("abcde", "ace"))
     print(sol._longestCommonSubsequence("abcde", "ace"))
-        

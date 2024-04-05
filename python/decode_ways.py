@@ -8,6 +8,7 @@
 
 from functools import lru_cache
 
+
 class Solution:
     def numDecodings(self, s: str) -> int:
         if len(s) == 0 or s is None:
@@ -27,6 +28,7 @@ class Solution:
                 return dfs(st[1:])
 
         return dfs(s)
+
 
 if __name__ == "__main__":
     s = Solution()

@@ -27,6 +27,7 @@ from typing import List
 
 # vid: https://youtu.be/lJwbPZGo05A
 
+
 class Solution:
     # greedy solution
     # time complexity: O(n)
@@ -35,7 +36,8 @@ class Solution:
         # if the total gas is less than the total cost, then we can't complete the circuit
         # so if this condition is false, it means we can complete the circuit
         # and it's guaranteed that there will be a solution
-        if sum(gas) < sum(cost): return -1
+        if sum(gas) < sum(cost):
+            return -1
         start = 0
         tank = 0
         for i in range(len(gas)):

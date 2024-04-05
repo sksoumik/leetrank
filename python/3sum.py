@@ -9,9 +9,9 @@
 # Input: nums = [-1,0,1,2,-1,-4]
 # Output: [[-1,-1,2],[-1,0,1]]
 
-from typing import List
-from itertools import combinations
 from collections import Counter
+from itertools import combinations
+from typing import List
 
 
 class Solution:

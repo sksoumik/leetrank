@@ -20,7 +20,6 @@
 # (3, 1)
 
 from typing import List
-import collections
 
 
 class Solution:

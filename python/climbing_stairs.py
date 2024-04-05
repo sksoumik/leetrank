@@ -10,6 +10,7 @@
 # 1. 1 step + 1 step
 # 2. 2 steps
 
+
 # recursive solution
 # will cause runtime error
 class SolutionRecursive:
@@ -27,7 +28,7 @@ class Solution:
         """
         We're building a table of the number of ways to climb to each step, starting with the base cases
         of 0, 1, and 2
-        
+
         :param n: the number of steps we want to climb
         :type n: int
         :return: The number of ways to climb the stairs.
@@ -45,4 +46,3 @@ if __name__ == "__main__":
     print(s.climbStairs(3))
     print(s.climbStairs(4))
     print(s.climbStairs(5))
-

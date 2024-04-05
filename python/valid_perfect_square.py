@@ -6,10 +6,6 @@
 # Input: num = 16
 # Output: true
 
-from typing import List
-import math
-
-from numpy import mat
 
 # approach: binary search
 class Solution:
@@ -35,7 +31,7 @@ class Solution:
 #         return a == int(a)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     s = Solution()
     print(s.isPerfectSquare(16))
     print(s.isPerfectSquare(14))

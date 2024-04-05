@@ -7,32 +7,25 @@
 
 from typing import List
 
+
 class Solution:
     def generateMatrix(self, n: int) -> List[List[int]]:
-        # Start with the empty matrix, 
-        # add the numbers in reverse order until we added the number 1. 
+        # Start with the empty matrix,
+        # add the numbers in reverse order until we added the number 1.
         # Always rotate the matrix clockwise and add a top row:
-        
-        matrix = [[n*n]]
-        low = n*n 
+
+        matrix = [[n * n]]
+        low = n * n
         while low > 1:
-            low= low - len(matrix)
+            low = low - len(matrix)
             high = low
-            matrix = [[i for i in range(low, high)]] + [list(j) for j in zip(*matrix[::-1])]
+            matrix = [[i for i in range(low, high)]] + [
+                list(j) for j in zip(*matrix[::-1])
+            ]
         return matrix
-            
-
-
 
 
 if __name__ == "__main__":
     sol = Solution()
     n = 3
     print(sol.generateMatrix(n))
-
-
-
-
-            
-            
-        

@@ -39,6 +39,7 @@ class Solution:
     # space complexity: O(n)
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         answer = []
+
         # try out each possible cases
         # maintain idx for avoiding repeated combinations
         def dfs(current_combination, current_sum, idx):

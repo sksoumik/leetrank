@@ -12,28 +12,38 @@
 # Output: 5
 # Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
 
-from typing import List
 from functools import lru_cache
+from typing import List
 
 # vid: https://youtu.be/ymE9E-cDYOI
+
 
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         @lru_cache(None)
         def recursion(time, stock, count):
 
-            if count > k: return 0
-            if time >= len(prices): return 0
+            if count > k:
+                return 0
+            if time >= len(prices):
+                return 0
 
-            buy = -prices[time] + recursion(time + 1, stock + 1, count) if stock == 0 else float("-inf")
-            sell = prices[time] + recursion(time + 1, stock - 1, count+1) if stock == 1 else float("-inf")
+            buy = (
+                -prices[time] + recursion(time + 1, stock + 1, count)
+                if stock == 0
+                else float("-inf")
+            )
+            sell = (
+                prices[time] + recursion(time + 1, stock - 1, count + 1)
+                if stock == 1
+                else float("-inf")
+            )
             hold = 0 + recursion(time + 1, stock, count)
 
             return max(buy, sell, hold)
 
-        k = 1    
+        k = 1
         return recursion(0, 0, 0)
-
 
 
 if __name__ == "__main__":

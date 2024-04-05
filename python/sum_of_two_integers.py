@@ -25,8 +25,6 @@ class Solution:
         # Return the sum of a and b
         return self._getSum(sum_w_carry, carry)
 
-
-
     def getSum(self, a: int, b: int) -> int:
 
         # method 1: O (n) solution: bit manipulation
@@ -63,6 +61,3 @@ if __name__ == "__main__":
     a = -2
     b = 3
     print(Solution().getSum(a, b))
-
-    
-

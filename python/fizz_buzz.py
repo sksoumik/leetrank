@@ -36,4 +36,3 @@ if __name__ == "__main__":
     print(s.fizzBuzz(15))
     print(s.fizzBuzz(2))
     print(s.fizzBuzz(3))
-    

@@ -12,8 +12,8 @@
 # Input: nums = [1], k = 1
 # Output: [1]
 
-from typing import List
 from collections import Counter
+from typing import List
 
 
 class Solution:

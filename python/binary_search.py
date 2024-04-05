@@ -5,7 +5,7 @@
 # If target exists, then return its index. Otherwise, return -1.
 # You must write an algorithm with O(log n) runtime complexity.
 from typing import List
-    
+
 
 class Solution:
     def search(self, nums: List[int], target: int):
@@ -34,4 +34,3 @@ if __name__ == "__main__":
     nums = [-1, 0, 3, 5, 9, 12]
     target = 2
     print(obj.binary_search(nums, target))
-

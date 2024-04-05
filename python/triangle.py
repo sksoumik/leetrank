@@ -21,8 +21,8 @@
 # Input: triangle = [[-10]]
 # Output: -10
 
-from typing import List
 from functools import lru_cache
+from typing import List
 
 
 class Solution:

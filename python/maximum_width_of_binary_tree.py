@@ -15,6 +15,8 @@
 # vid: https://youtu.be/673DsIXOkWg
 
 from typing import Optional
+
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -23,13 +25,13 @@ class TreeNode:
 
 
 class Solution:
-    # time complexity is O(n), where n is number of nodes, 
-    # because we traverse our tree, using bfs. Space complexity is O(w), 
+    # time complexity is O(n), where n is number of nodes,
+    # because we traverse our tree, using bfs. Space complexity is O(w),
     # where w is the biggest number of nodes in level, because we need to keep our queue
     def widthOfBinaryTree(self, root: Optional[TreeNode]) -> int:
         if not root:
             return 0
-        
+
         # we will keep the node and its index in the queue
         queue = [(root, 0)]
         max_width = 0
@@ -38,7 +40,7 @@ class Solution:
             # the position of the node in the tree. The `max_width` is the maximum difference between
             # the indices of the leftmost and rightmost nodes in the queue.
             # rightmost index - leftmost index + 1
-            max_width = max(max_width, queue[-1][1] - queue[0][1] + 1)  
+            max_width = max(max_width, queue[-1][1] - queue[0][1] + 1)
             # [(root, 0)]  -1 is the rightmost node, 0 is the leftmost node
             # and index is placed in the tuple as the second element, so 1
             for _ in range(len(queue)):
@@ -53,10 +55,11 @@ class Solution:
                     queue.append((node.right, 2 * index + 1))
         return max_width
 
+
 if __name__ == "__main__":
     sol = Solution()
 
-    root = TreeNode(1, TreeNode(3, TreeNode(5), TreeNode(3)), TreeNode(2, None, TreeNode(9)))
+    root = TreeNode(
+        1, TreeNode(3, TreeNode(5), TreeNode(3)), TreeNode(2, None, TreeNode(9))
+    )
     print(sol.widthOfBinaryTree(root))
-
-    

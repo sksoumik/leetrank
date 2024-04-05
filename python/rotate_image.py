@@ -6,7 +6,6 @@
 # DO NOT allocate another 2D matrix and do the rotation.
 
 from typing import List
-import numpy as np
 
 # matrix = np.array(matrix)
 # print("Original matrix:")

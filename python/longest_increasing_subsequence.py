@@ -1,21 +1,22 @@
 # https://leetcode.com/problems/longest-increasing-subsequence
 
-# Given an integer array nums, return the length of the longest strictly increasing 
-# subsequence. 
+# Given an integer array nums, return the length of the longest strictly increasing
+# subsequence.
 
 # Input: nums = [10,9,2,5,3,7,101,18]
 # Output: 4
 # Explanation: The longest increasing subsequence is [2,3,7,101], therefore the length is 4.
 
-from typing import List
 import bisect
+from typing import List
+
 
 class Solution:
-    # method 1: binary search using bisect 
+    # method 1: binary search using bisect
     def lengthOfLIS(self, nums: List[int]) -> int:
         # Initialize an empty list to store the longest increasing subsequences
         lis = []
-        
+
         # Loop through each element in the input list
         for num in nums:
             # If the longest increasing subsequences list is empty,
@@ -31,8 +32,7 @@ class Solution:
 
         # Return the length of the longest increasing subsequences list
         return len(lis)
-        
-    
+
     # method 2: binary search using binary search implementation
     def lengthOfLIS2(self, nums: List[int]) -> int:
         # find the index of the target in the array
@@ -78,9 +78,7 @@ class Solution:
 
 
 if __name__ == "__main__":
-    nums = [10,9,2,5,3,7,101,18]
+    nums = [10, 9, 2, 5, 3, 7, 101, 18]
     print(Solution().lengthOfLIS(nums))
     print(Solution().lengthOfLIS2(nums))
     print(Solution().lengthOfLIS3(nums))
-
-

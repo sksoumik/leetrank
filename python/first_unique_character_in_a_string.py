@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/first-unique-character-in-a-string
 
-# Given a string s, find the first non-repeating character in it 
+# Given a string s, find the first non-repeating character in it
 # and return its index. If it does not exist, return -1.
 
 # Example 1:
@@ -25,7 +25,7 @@ class Solution:
             # if the character is in the hash table, increment its count
             else:
                 hash[char] += 1
-        
+
         # iterate through the hash table and return the index of the first character with a count of 1
         for i in range(len(s)):
             if hash[s[i]] == 1:
@@ -34,16 +34,8 @@ class Solution:
         return -1
 
 
-
-
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     s = Solution()
     print(s.firstUniqChar("leetcode"))
     print(s.firstUniqChar("loveleetcode"))
     print(s.firstUniqChar("aabb"))
-
-
-
-            
-        

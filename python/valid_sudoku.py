@@ -21,39 +21,36 @@ class Solution:
         ,[".","6",".",".",".",".","2","8","."]
         ,[".",".",".","4","1","9",".",".","5"]
         ,[".",".",".",".","8",".",".","7","9"]]
-        
+
         """
         # rows as line
         for row in board:
             if not self.isValid(row):
                 return False
-        
+
         # cols as a line
         for col in zip(*board):
             if not self.isValid(list(col)):
                 return False
-        
+
         # 3*3 grid as line
-        
+
         for i in range(0, 9, 3):
             for j in range(0, 9, 3):
                 sub_boxes = []
-                
+
                 for k in range(3):
                     for l in range(3):
-                        sub_boxes.append(board[i+k][j+l])
-                
+                        sub_boxes.append(board[i + k][j + l])
+
                 if not self.isValid(sub_boxes):
                     return False
         return True
-                        
-            
-        
-    
+
     def isValid(self, line):
         # line = [i for i in line if i != "."]
         line = list(filter(lambda x: x != ".", line))
-        
+
         if len(line) != len(set(line)):
             return False
         return True

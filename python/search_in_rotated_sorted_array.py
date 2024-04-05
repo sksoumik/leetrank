@@ -1,8 +1,8 @@
 # https://leetcode.com/problems/search-in-rotated-sorted-array
 
 # There is an integer array nums sorted in ascending order (with distinct values).
-# Prior to being passed to your function, 
-# nums is possibly rotated at an unknown pivot index k (1 <= k < nums.length) 
+# Prior to being passed to your function,
+# nums is possibly rotated at an unknown pivot index k (1 <= k < nums.length)
 # such that the resulting array is [nums[k], nums[k+1], ..., nums[n-1],
 #  nums[0], nums[1], ..., nums[k-1]] (0-indexed). For example, [0,1,2,4,5,6,7] might be rotated at pivot index 3 and become [4,5,6,7,0,1,2].
 
@@ -11,7 +11,6 @@
 
 # You must write an algorithm with O(log n) runtime complexity.
 
- 
 
 # Example 1:
 # Input: nums = [4,5,6,7,0,1,2], target = 0
@@ -23,6 +22,7 @@
 
 from typing import List
 
+
 class Solution:
     # brute force approach
     def _search(self, nums: List[int], target: int) -> int:
@@ -31,7 +31,6 @@ class Solution:
                 return idx
         return -1
 
-    
     # binary search approach
     # time complexity: O(log n)
     # space complexity: O(1)
@@ -69,15 +68,11 @@ class Solution:
         return -1
 
 
-
 if __name__ == "__main__":
-    nums = [4,5,6,7,0,1,2]
+    nums = [4, 5, 6, 7, 0, 1, 2]
     target = 0
     print(Solution().search(nums, target))
 
-    nums = [4,5,6,7,0,1,2]
+    nums = [4, 5, 6, 7, 0, 1, 2]
     target = 3
     print(Solution().search(nums, target))
-
-    
-        

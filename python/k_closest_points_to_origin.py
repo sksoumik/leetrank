@@ -16,8 +16,8 @@
 # Output: [[3,3],[-2,4]]
 
 
-from typing import List
 import heapq
+from typing import List
 
 
 class Solution:

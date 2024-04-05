@@ -50,16 +50,14 @@ class Solution:
     # space: O(n)
     def twoSum_2(self, numbers: List[int], target: int) -> List[int]:
         hash_table = {}
-        
+
         for idx, num in enumerate(numbers):
             comp = target - num
-            
-            if comp in hash_table:
-                return [hash_table[comp] + 1, idx+1]
-            
-            hash_table[num] = idx
 
-            
+            if comp in hash_table:
+                return [hash_table[comp] + 1, idx + 1]
+
+            hash_table[num] = idx
 
 
 if __name__ == "__main__":
@@ -69,4 +67,3 @@ if __name__ == "__main__":
     numbers = [3, 2, 4]
     target = 6
     print(Solution().twoSum(numbers, target))
-    

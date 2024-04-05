@@ -3,6 +3,7 @@
 
 from typing import List
 
+
 class Solution:
     def findMin(self, nums: List[int]) -> int:
         # method 1: O (n) solution: linear search

@@ -13,8 +13,8 @@
 
 # vid: https://youtu.be/xhEEpnn0x1U
 
-from typing import List
 from functools import lru_cache
+from typing import List
 
 
 class Solution:

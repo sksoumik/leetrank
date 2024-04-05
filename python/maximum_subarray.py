@@ -5,6 +5,7 @@
 
 from typing import List
 
+
 # brute force
 # time complexity: O(n^2)
 def bf_max_subarray(nums):
@@ -16,7 +17,7 @@ def bf_max_subarray(nums):
 
     for i in range(len(nums)):
         for j in range(i, len(nums)):
-            all_subarrays.append(nums[i:j + 1])
+            all_subarrays.append(nums[i : j + 1])
 
     for subarray in all_subarrays:
         max_sum = max(max_sum, sum(subarray))

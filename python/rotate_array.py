@@ -9,6 +9,7 @@
 
 from typing import List
 
+
 class Solution:
     # solution 1
     def rotate(self, nums: List[int], k: int) -> None:
@@ -21,7 +22,6 @@ class Solution:
         k = k % len(nums)
         nums[:] = nums[-k:] + nums[:-k]
 
-
     # solution 2
     # time O(n) and space O(1)
     def rotate2(self, nums: List[int], k: int) -> None:
@@ -33,11 +33,11 @@ class Solution:
         k %= len(nums)
 
         # Reverse the whole list
-        self.reverse(nums, 0, len(nums)-1)
+        self.reverse(nums, 0, len(nums) - 1)
         # reverse the first k numbers
-        self.reverse(nums, 0, k-1)
+        self.reverse(nums, 0, k - 1)
         # reverse the last n-k numbers
-        self.reverse(nums, k, len(nums)-1)
+        self.reverse(nums, k, len(nums) - 1)
 
     def reverse(self, nums: List[int], start: int, end: int) -> None:
         while start < end:
@@ -46,20 +46,17 @@ class Solution:
             end -= 1
 
 
-
-
 if __name__ == "__main__":
-    nums = [1,2,3,4,5,6,7]
+    nums = [1, 2, 3, 4, 5, 6, 7]
     k = 3
     Solution().rotate(nums, k)
     print(nums)
-    nums = [1,2,3,4,5,6,7]
+    nums = [1, 2, 3, 4, 5, 6, 7]
     k = 9
     Solution().rotate(nums, k)
     print(nums)
 
-    nums = [1,2,3,4,5,6,7]
+    nums = [1, 2, 3, 4, 5, 6, 7]
     k = 9
     Solution().rotate2(nums, k)
     print(nums)
-    

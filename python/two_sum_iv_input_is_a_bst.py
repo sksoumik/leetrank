@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/two-sum-iv-input-is-a-bst
 
-# Given the root of a Binary Search Tree and a target number k, return true if there 
+# Given the root of a Binary Search Tree and a target number k, return true if there
 # exist two elements in the BST such that their sum is equal to the given target.
 
 # Example 1:
@@ -12,7 +12,8 @@
 # Input: root = [5,3,6,2,4,null,7], k = 28
 # Output: false
 
-from typing import Optional, List
+from typing import Optional
+
 
 # Definition for a binary tree node.
 class TreeNode:
@@ -21,14 +22,16 @@ class TreeNode:
         self.left = left
         self.right = right
 
+
 class Solution:
     def findTarget(self, root: Optional[TreeNode], k: int) -> bool:
         # use a hash table to store the values in the BST
         hash_table = {}
         return self.findTargetHelper(root, k, hash_table)
 
-    
-    def findTargetHelper(self, root: Optional[TreeNode], k: int, hash_table: dict) -> bool:
+    def findTargetHelper(
+        self, root: Optional[TreeNode], k: int, hash_table: dict
+    ) -> bool:
         if not root:
             return False
 
@@ -36,14 +39,12 @@ class Solution:
         if complement in hash_table:
             return True
         hash_table[root.val] = True
-        return (
-            self.findTargetHelper(root.left, k, hash_table) or 
-            self.findTargetHelper(root.right, k, hash_table)
+        return self.findTargetHelper(root.left, k, hash_table) or self.findTargetHelper(
+            root.right, k, hash_table
         )
-        
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     obj = Solution()
     root = TreeNode(5)
     root.left = TreeNode(3)
@@ -53,4 +54,3 @@ if __name__ == '__main__':
     root.right.right = TreeNode(7)
     print(obj.findTarget(root, 9))
     print(obj.findTarget(root, 28))
-    

@@ -1,7 +1,7 @@
 # https://leetcode.com/problems/max-area-of-island
 
-# You are given an m x n binary matrix grid. An island is a 
-# group of 1's (representing land) connected 4-directionally (horizontal or vertical.) 
+# You are given an m x n binary matrix grid. An island is a
+# group of 1's (representing land) connected 4-directionally (horizontal or vertical.)
 # You may assume all four edges of the grid are surrounded by water.
 # The area of an island is the number of cells with a value 1 in the island.
 # Return the maximum area of an island in grid. If there is no island, return 0.
@@ -25,7 +25,6 @@ class Solution:
                 if grid[i][j] == 1:
                     max_area = max(max_area, self.dfs(i, j, rows, cols, grid))
         return max_area
-    
 
     def dfs(self, i, j, rows, cols, grid):
         # This is checking if the current index is out of bounds or if the current index is not a 1.
@@ -49,19 +48,17 @@ class Solution:
 
         return top + down + left + right + 1
 
-    
-
 
 if __name__ == "__main__":
     grid = [
-        [0,0,1,0,0,0,0,1,0,0,0,0,0],
-        [0,0,0,0,0,0,0,1,1,1,0,0,0],
-        [0,1,1,0,1,0,0,0,0,0,0,0,0],
-        [0,1,0,0,1,1,0,0,1,0,1,0,0],
-        [0,1,0,0,1,1,0,0,1,1,1,0,0],
-        [0,0,0,0,0,0,0,0,0,0,1,0,0],
-        [0,0,0,0,0,0,0,1,1,1,0,0,0],
-        [0,0,0,0,0,0,0,1,1,0,0,0,0]]
+        [0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
+        [0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0],
+        [0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0],
+    ]
 
     print(Solution().maxAreaOfIsland(grid))
-        

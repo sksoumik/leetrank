@@ -1,4 +1,4 @@
-# https://leetcode.com/problems/implement-queue-using-stacks/ 
+# https://leetcode.com/problems/implement-queue-using-stacks/
 
 # Implement a first in first out (FIFO) queue using only two stacks.
 # The implemented queue should support all the functions of a normal queue (push, peek, pop, and empty).
@@ -31,7 +31,7 @@ class MyQueue:
     def empty(self) -> bool:
         # Return true if both stacks are empty, false otherwise
         return not self.enqueue_stack and not self.dequeue_stack
-    
+
     def transfer_if_necessary(self) -> None:
         # Transfer all elements from the enqueue stack to the dequeue stack
         # if the dequeue stack is empty
@@ -40,8 +40,7 @@ class MyQueue:
                 self.dequeue_stack.append(self.enqueue_stack.pop())
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Test the solution
     queue = MyQueue()
     queue.push(1)
@@ -50,4 +49,3 @@ if __name__ == '__main__':
     print(queue.pop())  # Output: 1
     print(queue.pop())  # Output: 2
     print(queue.empty())  # Output: True
-

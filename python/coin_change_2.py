@@ -23,8 +23,8 @@
 # Output: 0
 # Explanation: the amount of 3 cannot be made up just with coins of 2.
 
-from typing import List
 from functools import lru_cache
+from typing import List
 
 
 class Solution:
@@ -50,11 +50,9 @@ class Solution:
             return 0
 
         return len(result)
-    
-
 
     def change2(self, amount: int, coins: List[int]) -> int:
-        
+
         @lru_cache(maxsize=None)
         def _change(amount, idx):
             if amount == 0:

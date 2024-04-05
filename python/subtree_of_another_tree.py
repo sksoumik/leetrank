@@ -18,7 +18,7 @@
 
 # video explanation: https://youtu.be/E36O5SWp-LE
 
-from typing import List, Optional
+from typing import Optional
 
 
 class TreeNode:

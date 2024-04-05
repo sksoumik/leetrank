@@ -50,10 +50,10 @@ class Solution:
 
 
 if __name__ == "__main__":
-   sol = Solution()
+    sol = Solution()
 
-   nums = [2, 3, -2, 4]
-   print(sol.maxProduct(nums))
+    nums = [2, 3, -2, 4]
+    print(sol.maxProduct(nums))
 
-   nums = [-1, -2, -4]
-   print(sol.maxProduct(nums))
+    nums = [-1, -2, -4]
+    print(sol.maxProduct(nums))

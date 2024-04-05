@@ -1,5 +1,5 @@
 # https://leetcode.com/problems/excel-sheet-column-number
-# Given a string columnTitle that represents the column title as appear in an Excel sheet, 
+# Given a string columnTitle that represents the column title as appear in an Excel sheet,
 # return its corresponding column number.
 
 # A -> 1
@@ -12,6 +12,7 @@
 
 # video explanation: https://youtu.be/DQKafgIBeyI
 
+
 class Solution:
     def titleToNumber(self, columnTitle: str) -> int:
         multiplier = 1
@@ -22,6 +23,7 @@ class Solution:
             multiplier *= 26
         return column
 
+
 if __name__ == "__main__":
     s = Solution()
     print(s.titleToNumber("A"))
@@ -29,5 +31,3 @@ if __name__ == "__main__":
     print(s.titleToNumber("ZY"))
     print(s.titleToNumber("AAA"))
     print(s.titleToNumber("ZYX"))
-
-        

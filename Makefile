@@ -1,9 +1,13 @@
-format:
-    black .
-    isort .
-    autoflake --remove-all-unused-imports --recursive --in-place .
+format-isort: ## Fixes .py files with isort
+	@echo "Fixing isort formatting issues"
+	isort .
 
-test:
-    mypy .
+format-black: ## Fixes .py files with black
+	@echo "Fixing black formatting issues"
+	black .
 
-.PHONY: format test
+format-unused-imports: ## Fixes unused imports and unused variables
+	@echo "Removing unused imports"
+	autoflake -i --remove-all-unused-imports --recursive .
+
+format: format-unused-imports format-isort format-black

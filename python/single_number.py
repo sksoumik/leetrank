@@ -7,10 +7,10 @@
 # Input: nums = [2,2,1]
 # Output: 1
 
-from typing import List
-from operator import xor
-from functools import reduce
 from collections import Counter
+from functools import reduce
+from operator import xor
+from typing import List
 
 
 class Solution:
@@ -18,7 +18,7 @@ class Solution:
         """
         Reduce(function, iterable) applies function of two arguments cumulatively to the items of
         iterable, from left to right, so as to reduce the iterable to a single value
-        
+
         :param nums: List[int]
         :type nums: List[int]
         :return: The reduce function is being used to apply a function of two arguments cumulatively to
@@ -28,7 +28,7 @@ class Solution:
 
     # solution 2 using Counter
     def singleNumber_2(self, nums: List[int]) -> int:
-        c  = Counter(nums)
+        c = Counter(nums)
         for k, v in c.items():
             if v == 1:
                 return k
@@ -38,7 +38,6 @@ class Solution:
         for num in nums:
             if nums.count(num) == 1:
                 return num
-        
 
 
 if __name__ == "__main__":

@@ -6,7 +6,8 @@
 # Output: [1,2,3,4]
 
 
-from typing import Optional 
+from typing import Optional
+
 
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -22,17 +23,16 @@ class Solution2:
         while current:
             vals.append(current.val)
             current = current.next
-        
+
         # Sort the list
         vals.sort()
-        
+
         # Convert the list back to a linked list
         current = head
         for val in vals:
             current.val = val
             current = current.next
         return head
-    
 
 
 class Solution:
@@ -77,10 +77,8 @@ class Solution:
 
         return dummy.next
 
-    
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Input: head = [4,2,1,3]
     # Output: [1,2,3,4]
     head = ListNode(4)

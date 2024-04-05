@@ -16,8 +16,8 @@
 # Input: s = "catsandog", wordDict = ["cats","dog","sand","and","cat"]
 # Output: false
 
-from typing import List
 from functools import lru_cache
+from typing import List
 
 
 class Solution:

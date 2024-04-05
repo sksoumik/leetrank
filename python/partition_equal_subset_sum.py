@@ -1,10 +1,9 @@
 # https://leetcode.com/problems/partition-equal-subset-sum
 
-# Given a non-empty array nums containing only positive integers, 
-# find if the array can be partitioned into two subsets such that 
+# Given a non-empty array nums containing only positive integers,
+# find if the array can be partitioned into two subsets such that
 # the sum of elements in both subsets is equal.
 
- 
 
 # Example 1:
 
@@ -12,6 +11,7 @@
 # Output: true
 # Explanation: The array can be partitioned as [1, 5, 5] and [11].
 from typing import List
+
 
 class Solution:
     def canPartition(self, nums: List[int]) -> bool:
@@ -24,4 +24,3 @@ class Solution:
             for i in range(target, num - 1, -1):
                 dp[i] = dp[i] or dp[i - num]
         return dp[target]
-        

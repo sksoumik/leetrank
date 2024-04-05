@@ -1,7 +1,8 @@
 # https://leetcode.com/problems/remove-duplicates-from-sorted-list/
 
-# Given the head of a sorted linked list, delete all duplicates such that each element appears only once. 
+# Given the head of a sorted linked list, delete all duplicates such that each element appears only once.
 # Return the linked list sorted as well.
+
 
 # Definition for singly-linked list.
 class ListNode:
@@ -15,25 +16,24 @@ class Solution:
         """
         If the current node's value is the same as the next node's value, then skip the next node
         because it is a sorted linked list.
-        
+
         :param head: the head of the linked list
         :return: The head of the linked list.
         """
         if not head:
             return None
-        
+
         if not head.next:
             return head
-    
+
         current_node = head
         while current_node.next:
             if current_node.val == current_node.next.val:
                 current_node.next = current_node.next.next
             else:
-                current_node = current_node.next    
+                current_node = current_node.next
 
         return head
-
 
 
 if __name__ == "__main__":
@@ -57,5 +57,3 @@ if __name__ == "__main__":
     while current_node:
         print(current_node.val)
         current_node = current_node.next
-
-    

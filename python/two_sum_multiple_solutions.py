@@ -5,7 +5,7 @@ def two_sum_hash(ar, target):
     """
     For each number in the array, check if the complement of that number is in the hash table. If it is,
     then we have found a solution
-    
+
     :param ar: the array of numbers
     :param target: the target sum
     :return: A list of lists. Each list contains the indices of the two numbers that add up to the

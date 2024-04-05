@@ -8,7 +8,6 @@
 # Input: nums = [4,1,3,3]
 # Output: 5
 
-from typing import List
 
 from collections import Counter
 
@@ -30,7 +29,7 @@ class Solution:
 
         for i in range(length):
             result.append(nums[i] - i)
-        
+
         print(result)
         counter = Counter(result)
         print(counter)

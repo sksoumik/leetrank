@@ -14,6 +14,7 @@
 
 import collections
 
+
 # naive implementation
 class TwoSum:
     def __init__(self):

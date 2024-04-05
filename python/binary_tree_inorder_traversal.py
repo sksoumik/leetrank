@@ -2,7 +2,6 @@
 
 # Given the root of a binary tree, return the inorder traversal of its nodes' values.
 
-from typing import List
 
 # Definition for a binary tree node.
 class TreeNode:

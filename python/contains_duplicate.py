@@ -11,7 +11,7 @@ class Solution:
         """
         If the length of the list of unique values is not equal to the length of the original list, then
         there are duplicates
-        
+
         :param nums: List[int] -> this is the list of numbers that we're going to be checking for
         duplicates
         :type nums: List[int]

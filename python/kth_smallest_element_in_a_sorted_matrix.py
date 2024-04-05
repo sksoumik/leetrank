@@ -13,8 +13,8 @@
 # Explanation: The elements in the matrix are [1,5,9,10,11,12,13,13,15],
 # and the 8th smallest number is 13
 
-from typing import List
 import heapq
+from typing import List
 
 
 class Solution:
@@ -28,7 +28,7 @@ class Solution:
         flat_matrix.sort()
         # return the kth smallest element
         return flat_matrix[k - 1]
-    
+
     # heapq
     # time complexity: O(n^2)
     # space complexity: O(n^2)
@@ -45,7 +45,6 @@ class Solution:
             heapq.heappop(heap)
         # return the kth smallest element
         return heapq.heappop(heap)
-    
 
 
 if __name__ == "__main__":

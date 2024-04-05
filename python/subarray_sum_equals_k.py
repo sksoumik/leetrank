@@ -2,7 +2,7 @@
 
 # Given an array of integers nums and an integer k, return the total number of subarrays whose sum equals to k.
 # A subarray is a contiguous non-empty sequence of elements within an array.
- 
+
 
 # Example 1:
 
@@ -15,6 +15,7 @@
 
 from typing import List
 
+
 class Solution:
     # brute force approach: time O(n^2), space O(1)
     # time limit exceeded
@@ -22,7 +23,7 @@ class Solution:
         count = 0
         for i in range(len(nums)):
             for j in range(i, len(nums)):
-                if sum(nums[i:j+1]) == k:
+                if sum(nums[i : j + 1]) == k:
                     count += 1
         return count
 
@@ -32,7 +33,7 @@ class Solution:
     def subarraySum2(self, nums: List[int], k: int) -> int:
         count = 0
         sums = 0
-        d = {0: 1} # {running_sum: frequency}
+        d = {0: 1}  # {running_sum: frequency}
 
         for num in nums:
             sums += num
@@ -46,13 +47,12 @@ class Solution:
 
 
 if __name__ == "__main__":
-    nums = [1,1,1]
+    nums = [1, 1, 1]
     k = 2
     print(Solution().subarraySum(nums, k))
-    nums = [1,2,3]
+    nums = [1, 2, 3]
     k = 3
     print(Solution().subarraySum(nums, k))
-    nums = [1,1,1]
+    nums = [1, 1, 1]
     k = 2
     print(Solution().subarraySum2(nums, k))
-    

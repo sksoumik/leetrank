@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/two-sum/
 
+
 # method 1: O (n^2) brute force solution
 def two_sum_bf(arr, target):
     for i in range(len(arr)):
@@ -17,7 +18,7 @@ def two_sum_hash(arr, target):
         if complement in hash_table:
             return [hash_table[complement], idx]
         hash_table[num] = idx
-    
+
     return []
 
 

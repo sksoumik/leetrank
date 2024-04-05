@@ -15,10 +15,11 @@
 # Then buy on day 4 (price = 3) and sell on day 5 (price = 6), profit = 6-3 = 3.
 # Total profit is 4 + 3 = 7.
 
-from typing import List
 from functools import lru_cache
+from typing import List
 
 # vid: https://youtu.be/ymE9E-cDYOI
+
 
 class Solution:
     # time complexity: O(n)
@@ -26,10 +27,19 @@ class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         @lru_cache(None)
         def recursion(time, stock):
-            if time >= len(prices): return 0
+            if time >= len(prices):
+                return 0
 
-            buy = -prices[time] + recursion(time + 1, stock + 1) if stock == 0 else float("-inf")
-            sell = prices[time] + recursion(time + 1, stock - 1) if stock == 1 else float("-inf")
+            buy = (
+                -prices[time] + recursion(time + 1, stock + 1)
+                if stock == 0
+                else float("-inf")
+            )
+            sell = (
+                prices[time] + recursion(time + 1, stock - 1)
+                if stock == 1
+                else float("-inf")
+            )
             hold = 0 + recursion(time + 1, stock)
 
             return max(buy, sell, hold)
